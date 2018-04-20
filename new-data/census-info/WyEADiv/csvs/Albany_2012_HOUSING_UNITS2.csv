@@ -1,0 +1,12 @@
+"HOUSING
+  UNITS2",Number,Percent,Number,Percent
+"Total
+  housing units","18,004",100.0,"261,430",100.0
+Occupied housing units,"15,021",83.4,"221,479",84.7
+Owner-occupied,"7,620",50.7,"155,659",70.3
+Renter-occupied,"7,401",49.3,"65,820",29.7
+Vacant housing units,"2,983",16.6,"39,951",15.3
+
+Homeowner vacancy rate,(X),1.3,(X),1.7
+Rental vacancy rate,(X),6.3,(X),7.9
+

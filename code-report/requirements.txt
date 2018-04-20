@@ -1,0 +1,12 @@
+#shapely for geo data
+https://pypi.python.org/pypi/Shapely/1.5.13
+install geos
+pip install shapely
+
+#geopandas for state graph
+http://geopandas.org/install.html#installing-geopandas
+pip install git+git://github.com/geopandas/geopandas.git
+
+#pyshp for state graph
+https://pypi.python.org/pypi/pyshp
+pip install pyshp

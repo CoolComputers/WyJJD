@@ -1,0 +1,31 @@
+HOUSEHOLDS BY TYPE2,Number,Percent,Number,Percent
+"Total
+  households","7,327",100.0,"221,479",100.0
+Family households (families),"4,398",60.0,"145,992",65.9
+"With own children under 18
+  years","2,016",27.5,"63,449",28.6
+Married-couple family,"3,852",52.6,"117,493",53.0
+"With own children under 18
+  years","1,635",22.3,"45,297",20.5
+"Male householder, no wife present,
+  family",178,2.4,"9,246",4.2
+"With own children under 18
+  years",131,1.8,"5,912",2.7
+"Female householder, no husband
+  present, family",368,5.0,"19,253",8.7
+"With own children under 18
+  years",250,3.4,"12,240",5.5
+Nonfamily households,"2,929",40.0,"75,487",34.1
+Householder living alone,"2,103",28.7,"61,207",27.6
+65 years and over,464,6.3,"20,074",9.1
+
+"Households with one or more people under 18
+  years","2,079",28.4,"69,185",31.2
+"Households with one or more people 65 years
+  and over","1,265",17.3,"49,189",22.2
+
+"Average
+  household size",2.84,(X),2.48,(X)
+"Average
+  family size",3.46,(X),3.02,(X)
+

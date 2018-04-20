@@ -1,0 +1,116 @@
+COUNTY,YEAR,CHINS,DE
+Albany,2012,0,10
+Albany,2013,0,9
+Albany,2014,1,14
+Albany,2015,2,7
+Albany,2016,0,3
+Big Horn,2012,1,6
+Big Horn,2013,1,7
+Big Horn,2014,0,3
+Big Horn,2015,2,5
+Big Horn,2016,0,3
+Campbell,2012,20,51
+Campbell,2013,9,32
+Campbell,2014,9,30
+Campbell,2015,9,28
+Campbell,2016,15,21
+Carbon,2012,0,12
+Carbon,2013,0,5
+Carbon,2014,0,5
+Carbon,2015,0,9
+Carbon,2016,4,8
+Converse,2012,1,15
+Converse,2013,1,18
+Converse,2014,2,16
+Converse,2015,1,6
+Converse,2016,1,13
+Crook,2012,0,2
+Crook,2013,0,1
+Crook,2014,1,2
+Crook,2015,0,4
+Crook,2016,0,1
+Fremont,2012,0,18
+Fremont,2013,0,10
+Fremont,2014,1,7
+Fremont,2015,2,11
+Fremont,2016,1,13
+Goshen,2012,2,7
+Goshen,2013,4,7
+Goshen,2014,3,7
+Goshen,2015,6,5
+Goshen,2016,1,7
+Hot Springs,2012,0,4
+Hot Springs,2013,0,0
+Hot Springs,2014,0,1
+Hot Springs,2015,0,2
+Hot Springs,2016,2,2
+Johnson,2012,2,4
+Johnson,2013,0,5
+Johnson,2014,1,7
+Johnson,2015,1,3
+Johnson,2016,0,2
+Laramie,2012,17,28
+Laramie,2013,9,45
+Laramie,2014,19,37
+Laramie,2015,10,30
+Laramie,2016,28,24
+Lincoln,2012,0,1
+Lincoln,2013,0,2
+Lincoln,2014,1,2
+Lincoln,2015,5,0
+Lincoln,2016,3,5
+Natrona,2012,4,27
+Natrona,2013,7,23
+Natrona,2014,8,21
+Natrona,2015,7,16
+Natrona,2016,10,20
+Niobrara,2012,0,0
+Niobrara,2013,0,1
+Niobrara,2014,1,0
+Niobrara,2015,0,0
+Niobrara,2016,0,0
+Park,2012,0,19
+Park,2013,0,14
+Park,2014,0,11
+Park,2015,0,12
+Park,2016,0,8
+Platte,2012,2,7
+Platte,2013,0,4
+Platte,2014,3,3
+Platte,2015,0,1
+Platte,2016,0,1
+Sheridan,2012,4,9
+Sheridan,2013,7,5
+Sheridan,2014,6,6
+Sheridan,2015,5,6
+Sheridan,2016,2,9
+Sublette,2012,1,12
+Sublette,2013,6,4
+Sublette,2014,2,4
+Sublette,2015,1,3
+Sublette,2016,1,1
+Sweetwater,2012,18,63
+Sweetwater,2013,21,66
+Sweetwater,2014,22,69
+Sweetwater,2015,26,42
+Sweetwater,2016,48,62
+Teton,2012,6,12
+Teton,2013,1,6
+Teton,2014,1,8
+Teton,2015,1,4
+Teton,2016,4,6
+Uinta,2012,0,5
+Uinta,2013,1,4
+Uinta,2014,0,1
+Uinta,2015,1,8
+Uinta,2016,2,8
+Washakie,2012,0,1
+Washakie,2013,0,2
+Washakie,2014,0,2
+Washakie,2015,0,8
+Washakie,2016,0,3
+Weston,2012,0,4
+Weston,2013,1,2
+Weston,2014,0,2
+Weston,2015,0,6
+Weston,2016,0,5

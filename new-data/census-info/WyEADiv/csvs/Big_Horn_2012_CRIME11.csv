@@ -1,0 +1,13 @@
+CRIME11,Number,Percent,Number,Percent
+"Violent
+  Crime",15,100.0,"1,086",100.0
+Murder,0,0.0,14,1.3
+Forcible Rape,3,20.0,147,13.5
+Robbery,1,6.7,60,5.5
+Aggravated Assault,11,73.3,865,79.7
+"Property
+  Crime",47,100.0,"12,791",100.0
+Burglary,16,34.0,"2,061",16.1
+Larceny-Theft,31,66.0,"10,182",79.6
+Motor Vehicle Theft,0,0.0,548,4.3
+
