@@ -3,9 +3,8 @@ MASTER TODO LIST
 DCI:
 [x] clean 2015
 [x] clean 2014
-[] clean 2013
+[x] clean 2013
 [x] clean 2012
-[] combine 2012,2013,2014,2015,2016q3&q4
 
 DFS:
 [x] clean all & import
