@@ -1,4 +1,4 @@
-import csv
+import csv,copy
 
 filename = 'all-combined/index-offenses/2016-index-cp-b4.csv'
 file = open(filename,'r')
@@ -19,7 +19,8 @@ for line in file:
     if line != '':
         if line.startswith('##') and '(DOES NOT REPORT)' not in line:
             print('finished obj='+str(tmp))
-            all_counties.append(tmp)
+            tmp2=tmp
+            all_counties.append(copy.deepcopy(tmp))
             tmp = county_obj
             county = ' '.join(line.split(' ')[1:]).strip('\n')
             tmp['name']=county
@@ -50,17 +51,17 @@ for line in file:
             tmp[index]['total']=line.split(' ')[-1].strip('\n')
         elif line.startswith('M '):
             if len(line.split(' '))>1:
-                print(line+'--want='+str(line.split(' ')[1].strip('\n'))+'--size='+str(len(line.split(' '))))
+                #print(line+'--want='+str(line.split(' ')[1].strip('\n'))+'--size='+str(len(line.split(' '))))
                 tmp[index]['adult_male']=line.split(' ')[1].strip('\n')
             if len(line.split(' '))>2:
-                print(line+'--want='+str(line.split(' ')[2].strip('\n'))+'--size='+str(len(line.split(' '))))
+                #print(line+'--want='+str(line.split(' ')[2].strip('\n'))+'--size='+str(len(line.split(' '))))
                 tmp[index]['juvenile_male']=line.split(' ')[2].strip('\n')
         elif line.startswith('F '):
             if len(line.split(' '))>1:
-                print(line+'--want='+str(line.split(' ')[1].strip('\n'))+'--size='+str(len(line.split(' '))))
+                #print(line+'--want='+str(line.split(' ')[1].strip('\n'))+'--size='+str(len(line.split(' '))))
                 tmp[index]['adult_female']=line.split(' ')[1].strip('\n')
             if len(line.split(' '))>2:
-                print(line+'--want='+str(line.split(' ')[2].strip('\n'))+'--size='+str(len(line.split(' '))))
+                #print(line+'--want='+str(line.split(' ')[2].strip('\n'))+'--size='+str(len(line.split(' '))))
                 tmp[index]['juvenile_female']=line.split(' ')[2].strip('\n')
         #now parse numbers
         # tmp[index]['total'] = line.split(' ')[-1]
@@ -82,9 +83,15 @@ file.write('county,'+'murder_total,murder_adult_male,murder_adult_female,murder_
                     'mvt_total,mvt_adult_male,mvt_adult_female,mvt_juvenile_male,mvt_juvenile_female,'+
                     'total_total,total_adult_male,total_adult_female,total_juvenile_male,total_juvenile_female\n')
 for county in all_counties:
-    print('writing '+county['name'])
+    print('writing '+str(county))
     strg = f"{county['name']},{county['murder']['total']},{county['murder']['adult_male']},{county['murder']['adult_female']},{county['murder']['juvenile_male']},{county['murder']['juvenile_female']},"
-    #strg = strg+f"{county.murder.total},{county.murder.},{county.murder.},{county.murder.},{county.murder.},"
+    strg = strg+f"{county['name']},{county['forcible_rape']['total']},{county['forcible_rape']['adult_male']},{county['forcible_rape']['adult_female']},{county['forcible_rape']['juvenile_male']},{county['forcible_rape']['juvenile_female']},"
+    strg+f"{county['name']},{county['robbery']['total']},{county['robbery']['adult_male']},{county['robbery']['adult_female']},{county['robbery']['juvenile_male']},{county['robbery']['juvenile_female']},"
+    strg+f"{county['name']},{county['aggravated_assault']['total']},{county['aggravated_assault']['adult_male']},{county['aggravated_assault']['adult_female']},{county['aggravated_assault']['juvenile_male']},{county['aggravated_assault']['juvenile_female']},"
+    strg+f"{county['name']},{county['burglary']['total']},{county['burglary']['adult_male']},{county['burglary']['adult_female']},{county['burglary']['juvenile_male']},{county['burglary']['juvenile_female']},"
+    strg+f"{county['name']},{county['larceny_theft']['total']},{county['larceny_theft']['adult_male']},{county['larceny_theft']['adult_female']},{county['larceny_theft']['juvenile_male']},{county['larceny_theft']['juvenile_female']},"
+    strg+f"{county['name']},{county['mvt']['total']},{county['mvt']['adult_male']},{county['mvt']['adult_female']},{county['mvt']['juvenile_male']},{county['mvt']['juvenile_female']},"
+    strg+f"{county['name']},{county['total']['total']},{county['total']['adult_male']},{county['total']['adult_female']},{county['total']['juvenile_male']},{county['total']['juvenile_female']}\n"
     file.write(strg)
 
 file.close()
