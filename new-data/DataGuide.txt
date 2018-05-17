@@ -2,12 +2,8 @@ DCI - extracted from reports directly from Wyoming DCI webpage
 
 DFS - taken from Data/DFS Placement
 
-ORI -
-
 From-Email - contains originial files sent in email between Sam Kanish and Wyoclc
 
 School - school crime data. Taken from Data/School Discipline?
 
-census-info -
-AmericanCommunity_5yr_12-16_EconomicData - taken from https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=CF
-* sent data request to Division of Economic Data 
+census-info - Wyoming Economic Analysis Division
