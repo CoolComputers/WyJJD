@@ -1,4 +1,6 @@
 MASTER TODO LIST
+[] = todo
+[x] = done
 
 DCI:
 [x] clean 2015
@@ -13,7 +15,9 @@ juvy arrests:
 [x] clean all & import
 
 ORI:
-[] track down files and clean & import
+[x] track down files and clean & import
+[x] verify
+[] Niobrara missing 2015 and 2016 data
 
 school-discipline:
 found 2007-2016, new file name is SchoolDiscipline_2007-16
