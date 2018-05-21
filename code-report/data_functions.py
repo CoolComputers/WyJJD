@@ -43,13 +43,15 @@ def getOverview():#DONE
     return pd.concat(gather_overview_frames)
 
 def getDFS():
-    afcars = pd.read_csv(dfs_afcars_data_file,sep=',',header='infer',index_col=0)
-    county = pd.read_csv(dfs_county_data_file,sep=',',header='infer',index_col=0)
+    afcars = pd.read_csv(dfs_afcars_data_file,sep=',',header='infer',index_col=[0,1])
+    #afcars.set_index('COUNTY')
+    county = pd.read_csv(dfs_county_data_file,sep=',',header='infer',index_col=[0,1])
+    #county.set_index('COUNTY')
     plc = pd.read_csv(dfs_plc_data_file,sep=',',header='infer',index_col=0)
     return afcars, county, plc
 
 def getSchool():
-    return pd.read_csv(school_discipline_data_file,sep=',',header='infer')
+    return pd.read_csv(school_discipline_data_file,sep=',',header='infer',index_col=[1,2,3])
 
 #fix this to dynamically load files
 def getIndexCrimes():
