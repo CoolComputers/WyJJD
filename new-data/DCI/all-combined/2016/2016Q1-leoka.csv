@@ -1,0 +1,40 @@
+"",,,,Type of Weapon,,,Type of Assignment,,,
+"",,,,,,,,,,
+"",,,,,,,,,,
+"",,Total,,,,,,,,
+"",,Assaults,,Knife,"Hand,",,One-Man Detective,,,
+"",,by,,or Other Other,"Fists,",,,,,
+"",,Weapon,,Cutting Dangerous,"Feet,",Two-Man,Vehicle Special Assign.,,Other,
+"",,,Firearm,Instrument Weapon,Etc.,Vehicle,,,,
+"",,,,,,,Alone Assisted Alone Assisted,Alone,Assisted,Cleared
+"",Type of Activity,A,B,C D,E,F,G H I J,K,L,M
+"",,,,,,,,,,
+"",,,,,,,,,,
+"",,,,,,,,,,
+1,"Responding to ""Disturbance"" Call",2,,,2,,1,,1,1
+"",,,,,,,,,,
+"",Burglaries in progress or pursuing burglary,,,,,,,,,
+2,,0,,,,,,,,
+"",suspect,,,,,,,,,
+"",Robberies in progress or pursuing robbery,,,,,,,,,
+3,,0,,,,,,,,
+"",suspect,,,,,,,,,
+4,Attempting other arrest,2,1,,1,,1 1,,,1
+"",,,,,,,,,,
+5,"Civil disorder (riot, mass disobedience)",0,,,,,,,,
+"",,,,,,,,,,
+"","Handling,  transporting, custody of",,,,,,,,,
+6,,3,,,3,,1,1,1,2
+"",prisoners,,,,,,,,,
+"",Investigation suspicious persons or,,,,,,,,,
+7,,1,,,1,,1,,,
+"",circumstances,,,,,,,,,
+8,Ambush - no warning,0,,,,,,,,
+"",,,,,,,,,,
+9,Mentally deranged,1,,1,,,1,,,1
+"",,,,,,,,,,
+10,Traffic pursuits and stops,0,,,,,,,,
+"",,,,,,,,,,
+11,All others,1,,,1,,,,1,1
+"",,,,,,,,,,
+12,TOTALS,10,1,0 1,8,0,0 5 0 1,1,3,6

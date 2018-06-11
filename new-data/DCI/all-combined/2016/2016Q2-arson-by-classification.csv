@@ -1,0 +1,14 @@
+"",,,,Estimated
+"",Number,Total,Uninhabited,Value of
+"",of,Offenses,or Abandoned,Property
+"",Offenses,Cleared,Structures,Damaged
+Property Classification,,,,
+Single Occupancy Residence,2,1,1,"$2,100"
+Other Residence,1,0,0,$0
+All other Structures,1,0,1,$750
+TOTAL STRUCTURES,4,1,2,"$2,850"
+Motor Vehicles,1,0,0,"$2,000"
+Other Mobile Property,0,0,0,$0
+TOTAL MOBILE,1,0,0,"$2,000"
+TOTAL OTHER,4,1,0,$775
+GRAND TOTAL,9,2,2,"$5,625"

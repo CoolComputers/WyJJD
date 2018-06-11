@@ -1,0 +1,23 @@
+TRANSPORTATION12,Number,Percent,Number,Percent
+"Number
+  of Registered Vehicles","15,256",100.0,"883,401",100.0
+Passenger Cars,"5,000",32.8,"348,250",39.4
+Trucks,"4,623",30.3,"251,400",28.5
+Motorcycles,410,2.7,"29,853",3.4
+Trailers (including house trailers),"3,803",24.9,"196,395",22.2
+"University of Wyoming Specialty Plates
+  (cars & trucks)",97,0.6,"5,025",0.6
+Commercial Trucks & Trailers,723,4.7,"24,901",2.8
+Others,600,3.9,"27,577",3.1
+"Road
+  (miles)",537,100.0,"29,070",100.0
+Federal,100,18.6,"4,089",14.1
+State Highway,150,28.0,"6,752",23.2
+County Road,242,45.1,"14,620",50.3
+Local (City & Town),40,7.5,"2,431",8.4
+Other,4,0.8,"1,178",4.1
+"Per
+  Capita Vehicle Miles Traveled","11,202",(X),"15,659",(X)
+"Commercial
+  Airport Passengers","5,706",(X),"997,818",(X)
+

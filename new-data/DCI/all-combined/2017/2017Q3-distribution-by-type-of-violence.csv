@@ -1,0 +1,14 @@
+"",,Total Number of,Total Number of,,
+"",,Victims,Offenders,Total Arrest,% of Incidents
+"",Total Number,,,By Incident,Resulting In
+"",of Incidents,,,Type,Arrest
+"",,,,,
+TYPE OF VIOLENCE,,Male Female,Male Female,,
+Abductions,0,,,,-
+Assaults,414,143 271,273 141,214,51.7%
+Intimidation,7,0 7,7 0,3,42.9%
+Murder,3,0 3,3 0,2,66.7%
+Sex Assault,10,2 8,10 0,2,20.0%
+Violation of Protection,35,5 30,30 5,12,34.3%
+Other,6,3 3,2 4,2,33.3%
+TOTAL,475,153 322,325 150,235,49.5%

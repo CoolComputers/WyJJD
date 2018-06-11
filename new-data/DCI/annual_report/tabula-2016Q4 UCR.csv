@@ -1,0 +1,458 @@
+"",Actual,Cleared,%Cleared,Stolen,%Change
+"",,,,,
+Murder,4,4,100.0%,$0,33.3%
+Rape,44,10,22.7%,$0,25.7%
+Robbery,14,8,57.1%,"$6,307",0.0%
+Aggravated Assault,220,164,74.5%,$0,-2.2%
+Burglary,354,78,22.0%,"$733,126",-14.9%
+Larceny,"1,934",469,24.3%,"$1,086,655",-6.2%
+MV Theft,144,28,19.4%,"$1,031,810",-2.7%
+Violent,282,186,66.0%,"$2,857,898",3.3%
+Property,"2,432",575,23.6%,"$2,851,591",-7.4%
+Total,"2,714",761,28.0%,"$5,709,489",-6.4%
+Arson,4,0,0.0%,$550,0.0%
+"",,,,,,,,th4  Qt,,,4th Qt,,
+"",,,,AGG,,,,,,,,,%
+"",MURDER,RAPE,ROBBERY,,BURGLARY,LARCENY,MVT,2016,,M,2015,M,
+"",,,,ASSLT,,,,Total,,,Total,,Change *
+ALBANY COUNTY,0,4,0,12,21,124,7,168,,,212,,-20.8%
+"",,,,,,,,,,,,,
+Sheriff,,,,3,1,9,1,14,,3,14,3,0.0%
+"",,,,,,,,,,,,,
+Laramie,,4,,9,19,88,5,125,,3,159,3,-21.4%
+"",,,,,,,,,,,,,
+University of,,,,,,,,,,,,,
+"",,,,,1,27,1,29,,3,39,3,-25.6%
+Wyoming,,,,,,,,,,,,,
+BIG HORN COUNTY,0,0,0,0,4,7,2,13,,,13,,0.0%
+"",,,,,,,,,,,,,
+Sheriff,,,,,2,4,2,8,,3,4,3,100.0%
+"",,,,,,,,,,,,,
+Lovell,,,,,,,,0,,0,0,0,0.0%
+"",,,,,,,,,,,,,
+Greybull,,,,,2,3,,5,,3,9,3,-44.4%
+"",,,,,,,,,,,,,
+CAMPBELL COUNTY,2,4,1,41,26,156,8,238,,,312,,-23.7%
+"",,,,,,,,,,,,,
+Sheriff,2,2,,30,6,19,1,60,,3,68,3,-11.8%
+"",,,,,,,,,,,,,
+Gillette,,2,1,11,20,137,7,178,,3,244,3,-27.0%
+"",,,,,,,,,,,,,
+CARBON COUNTY,0,1,1,5,6,81,4,98,,,7,,1300.0%
+"",,,,,,,,,,,,,
+Sheriff,,,,3,,3,,6,,3,6,3,0.0%
+"",,,,,,,,,,,,,
+Rawlins,,1,1,2,5,73,3,85,,3,0,3,100.0%
+"",,,,,,,,,,,,,
+Saratoga,,,,,,4,1,5,,3,1,3,400.0%
+"",,,,,,,,,,,,,
+Hanna,,,,,1,1,,2,,3,0,3,100.0%
+"",,,,,,,,,,,,,
+CONVERSE COUNTY,0,1,0,2,7,36,0,46,,,52,,-11.5%
+"",,,,,,,,,,,,,
+Sheriff,,,,,,,,0,,0,0,3,0.0%
+"",,,,,,,,,,,,,
+Douglas,,,,1,6,28,,35,,3,48,3,-27.1%
+"",,,,,,,,,,,,,
+Glenrock,,1,,1,1,8,,11,,3,4,3,175.0%
+"",,,,,,,,,,,,,
+CROOK COUNTY,0,0,0,0,2,11,1,14,,,17,,-17.6%
+"",,,,,,,,,,,,,
+Sheriff,,,,,2,6,1,9,,3,3,3,200.0%
+"",,,,,,,,,,,,,
+Sundance,,,,,,2,,2,,3,1,3,100.0%
+"",,,,,,,,,,,,,
+Moorcroft,,,,,,3,,3,,3,13,3,-76.9%
+"",,,,,,,,,,,,,
+FREMONT COUNTY,0,7,1,5,17,220,9,259,,,257,,0.8%
+"",,,,,,,,,,,,,
+Sheriff,,4,,1,3,29,1,38,,1,42,3,-9.5%
+"",,,,,,,,,,,,,
+Lander,,,,,,61,2,63,,3,50,3,26.0%
+"",,,,,,,,,,,,,
+Riverton,,3,1,4,14,130,6,158,,3,165,3,-4.2%
+"",,,,,,,,,,,,,
+GOSHEN COUNTY,0,0,0,13,2,19,1,35,,,25,,40.0%
+"",,,,,,,,,,,,,
+Sheriff,,,,3,1,4,,8,,3,0,3,100.0%
+"",,,,,,,,,,,,,
+Torrington,,,,10,1,15,1,27,,3,25,3,8.0%
+"",,,,,,,,,,,,,
+HOT SPRINGS,,,,,,,,,,,,,
+"",0,0,0,0,0,9,2,11,,,9,,22.2%
+COUNTY,,,,,,,,,,,,,
+Sheriff,,,,,,2,1,3,,3,7,3,-57.1%
+"",,,,,,,,,,,,,
+Thermopolis,,,,,,7,1,8,,3,2,3,300.0%
+"",,,,,,,,,,,,,
+JOHNSON COUNTY,0,0,0,3,7,17,2,29,,,43,,-32.6%
+"",,,,,,,,,,,,,
+Sheriff,,,,1,2,3,1,7,,3,13,3,-46.2%
+"",,,,,,,,,,,,,
+Buffalo,,,,2,5,14,1,22,,3,30,3,-26.7%
+"",,,,,,,,,,,,,
+LARAMIE COUNTY,1,7,2,49,110,602,64,835,,,563,,48.3%
+"",,,,,,,,,,,,,
+Sheriff,1,3,,8,14,59,11,96,,3,124,3,-22.6%
+"",,,,,,,,,,,,,
+Cheyenne,,4,2,41,95,539,53,734,,3,439,3,67.2%
+"",,,,,,,,,,,,,
+Pine Bluffs,,,,,1,4,0,5,,2,0,3,100.0%
+"",,,,,,,,4th Qt,,4th Qt,,%
+"",,,,AGG,,,,,,,,
+"",MURDER,RAPE,ROBBERY,,BURGLARY,LARCENY,MVT,2016,M,2015,M,Change
+"",,,,ASSLT,,,,TOTAL,,TOTAL,,*
+LINCOLN COUNTY,0,0,0,8,3,13,2,26,,47,,-44.7%
+"",,,,,,,,,,,,
+Sheriff,,,,8,2,8,1,19,3,23,3,-17.4%
+"",,,,,,,,,,,,
+Afton,,,,,,2,,2,3,14,3,-85.7%
+"",,,,,,,,,,,,
+Kemmerer,,,,,1,3,1,5,3,10,3,-50.0%
+"",,,,,,,,,,,,
+Diamondville,,,,,,,,0,3,0,3,0.0%
+"",,,,,,,,,,,,
+NATRONA COUNTY,0,6,3,22,60,153,15,259,,634,,-59.1%
+"",,,,,,,,,,,,
+Sheriff,,5,1,8,29,35,5,83,3,89,3,-6.7%
+"",,,,,,,,,,,,
+Casper,,,1,5,14,85,5,110,1,499,3,-78.0%
+"",,,,,,,,,,,,
+Mills,,,1,2,15,20,2,40,3,32,3,25.0%
+"",,,,,,,,,,,,
+Evansville,,1,,7,2,13,3,26,3,14,3,85.7%
+"",,,,,,,,,,,,
+NIOBRARA COUNTY,0,0,0,0,0,0,0,0,,0,,0.0%
+"",,,,,,,,,,,,
+Sheriff,,,,,,,,0,0,0,0,0.0%
+"",,,,,,,,,,,,
+Lusk,,,,,,,,0,0,0,0,0.0%
+"",,,,,,,,,,,,
+PARK COUNTY,0,3,0,11,19,83,0,116,,136,,-14.7%
+"",,,,,,,,,,,,
+Sheriff,,,,5,7,19,,31,3,20,3,55.0%
+"",,,,,,,,,,,,
+Cody,,1,,3,9,38,,51,3,63,3,-19.0%
+"",,,,,,,,,,,,
+Powell,,2,,3,3,26,,34,3,53,3,-35.8%
+"",,,,,,,,,,,,
+PLATTE COUNTY,0,0,0,0,3,7,1,11,,48,,-77.1%
+"",,,,,,,,,,,,
+Sheriff,,,,,2,,1,3,3,7,3,-57.1%
+"",,,,,,,,,,,,
+Wheatland,,,,,1,7,,8,3,41,3,-80.5%
+"",,,,,,,,,,,,
+Guernsey,,,,,,,,0,0,0,0,0.0%
+"",,,,,,,,,,,,
+SHERIDAN COUNTY,1,0,0,11,11,81,2,106,,147,,-27.9%
+"",,,,,,,,,,,,
+Sheriff,,,,10,,7,,17,3,12,3,41.7%
+"",,,,,,,,,,,,
+Sheridan,1,,,1,11,74,2,89,3,135,3,-34.1%
+"",,,,,,,,,,,,
+NWCCD,,,,,,,,0,0,0,0,-6.9%
+"",,,,,,,,,,,,
+SUBLETTE COUNTY,0,0,0,0,2,15,1,18,,35,,-48.6%
+"",,,,,,,,,,,,
+Sheriff,,,,,2,15,1,18,3,35,3,-48.6%
+"",,,,,,,,,,,,
+SWEETWATER,,,,,,,,,,,,
+"",0,8,2,19,22,140,10,201,,245,,-18.0%
+COUNTY,,,,,,,,,,,,
+Sheriff,,1,,1,7,11,4,24,3,30,3,-20.0%
+"",,,,,,,,,,,,
+Green River,,,,6,4,19,,29,3,56,3,-48.2%
+"",,,,,,,,,,,,
+Rock Springs,,7,2,12,11,110,6,148,3,159,3,-6.9%
+"",,,,,,,,,,,,
+TETON COUNTY,0,1,0,5,2,30,6,44,,53,,-17.0%
+"",,,,,,,,,,,,
+Jackson,,1,,5,2,30,6,44,3,53,3,-17.0%
+"",,,,,,,,,,,,
+UINTA COUNTY,0,1,2,3,9,81,2,98,,118,,-16.9%
+"",,,,,,,,,,,,
+Sheriff,,,,2,2,13,,17,3,0,3,100.0%
+"",,,,,,,,,,,,
+Evanston,,1,2,1,7,68,2,81,3,118,3,-31.4%
+"",,,,,,,,,,,,
+WASHAKIE COUNTY,0,0,1,0,8,12,1,22,,19,,15.8%
+"",,,,,,,,,,,,
+Sheriff,,,,,2,2,1,5,3,1,3,400.0%
+"",,,,,,,,,,,,
+Worland,,,1,,6,10,,17,3,18,3,-5.6%
+"",,,,,,,,,,,,
+WESTON COUNTY,0,1,0,4,1,8,0,14,,19,,-26.3%
+"",,,,,,,,,,,,
+Sheriff,,,,1,,,,1,3,1,3,0.0%
+"",,,,,,,,,,,,
+Newcastle,,1,,3,1,8,,13,3,18,3,-27.8%
+"",,,,,,,,,,,,
+TOTAL,4,44,13,213,342,"1,905",140,"2,661",,"3,011",,-11.6%
+"",,ADULT,JUVENILE
+"",,,
+CLASSIFICATION OF OFFENSES,Male,Female,Male Female
+Murder & Non-Negligent Manslaughter,2,,
+"",,,
+Forcible Rape,4,1,
+"",,,
+Robbery,5,1,
+"",,,
+Aggravated Assault,83,18,4
+"",,,
+Burglary,30,14,8 1
+Larceny-Theft,221,184,61 35
+Motor Vehicle Theft,16,4,
+"",,,
+TOTAL INDEX OFFENSE ARRESTS,361,222,73 36
+Manslaughter by Negligence,1,,
+"",,,
+Arson,5,1,
+"",,,
+Other Assaults,225,96,62 36
+Forgery & Counterfeiting,3,8,
+"",,,
+Fraud,29,14,1
+"",,,
+Embezzlement,,,
+"",,,
+"Stolen Property; By Receive, Possess",7,3,1
+"",,,
+Vandalism,62,19,33 9
+"Weapons; Carry, Possess, etc.",5,1,12
+"",,,
+Prostitution & Commercialized Vice,8,6,
+"",,,
+Sex Offenses(Except Rape & Prostitution),14,1,3
+"",,,
+GRAND TOTAL DRUG ABUSE VIOLATIONS,632,275,95 38
+"(1) Sale/Manufacture Subtotal",52,23,7 2
+"(2) Possession Subtotal",580,252,88 36
+Gambling Offenses,,,1
+"",,,
+Offenses Against Family & Children,40,26,2
+"",,,
+Driving Under the Influence,494,172,1 3
+Liquor Laws,243,124,51 30
+Drunkenness,346,53,1 2
+Disorderly Conduct,119,31,31 10
+Vagrancy,2,,
+"",,,
+All Other Offenses (Except Traffic),1072,445,134 36
+Suspicion,1,,
+"",,,
+Curfew & Loitering Law Violations,N/A,N/A,17 8
+Runaways,N/A,N/A,1 5
+TOTALS,"3,669","1,497",517 215
+Total Arrests Adult - Juvenile,"5,991",,945
+"",,,
+TOTAL ARRESTS,"6,936",,
+"",2016,2015,% Change
+"",,,
+Adult Male,"3,669","4,209",-12.83%
+Adult Female,"1,497","1,782",-15.99%
+Adult Total,"5,166","6,017",-14.14%
+JV Male,517,660,-21.67%
+JV Female,215,285,-24.56%
+JV Total,732,"1,065",-31.27%
+TOTAL,"5,898","7,082",-16.72%
+"",VALUE,VALUE,PERCENT
+"",,,
+TYPE OF PROPERTY,STOLEN,RECOVERED,RECOVERED
+"A) Currency, Notes, etc.","$167,564","$13,916",8.3%
+B) Jewelry & Precious Metal,"$210,936","$14,930",7.1%
+C) Clothing & Furs,"$56,852","$7,392",13.0%
+D) Locally Stolen Motor Vehicles,"$1,004,642","$488,623",48.6%
+E) Office Equipment,"$49,077","$4,721",9.6%
+"F) Televisions, Radios, Stereos, etc.","$85,395","$9,850",11.5%
+G) Firearms,"$77,345","$10,728",13.9%
+H) Household Goods,"$29,221","$3,730",12.8%
+I) Consumable Goods,"$39,917","$13,358",33.5%
+J) Livestock,"$18,873",$430,2.3%
+K) Miscellaneous,"$1,118,076","$209,076",18.7%
+TOTAL,"$2,857,898","$776,754",27.2%
+"",,,,Estimated
+"",,,,
+"",Number,Total,Uninhabited,Value of
+"",,,,
+"",of,Offenses,or Abandoned,Property
+"",,,,
+Property Classification,Offenses,Cleared,Structures,Damaged
+"",,,,
+Single Occupancy Residence,1,,1,$300
+"",,,,
+Other Residence,,,,
+"",,,,
+Storage,,,,
+"",,,,
+Industrial/Manufacturing,,,,
+"",,,,
+Other Commercial,,,,
+"",,,,
+Community/Public,1,,,$150
+"",,,,
+All other Structures,,,,
+"",,,,
+TOTAL STRUCTURES,2,0,1,$450
+"",,,,
+Motor Vehicles,,,,
+"",,,,
+Other Mobile Property,1,,,$100
+"",,,,
+TOTAL MOBILE,1,0,0,$100
+"",,,,
+TOTAL OTHER,0,0,0,$0
+"",,,,
+GRAND TOTAL,3,0,1,$550
+"",,,,Total Arsons Reported by Month,,,,
+Jan,Feb,Mar,Apr,May Jun Jul Aug Sep,Oct,Nov,Dec,Total
+4,0,2,2,3 4 4 7 2,1,3,0,41
+"",,Total Number of,,Total Number of,,Total Arrest,% of Incidents
+"",,,,,,,
+"",Total Number,Victims,,Offenders,,By Incident,Resulting In
+"",,,,,,,
+TYPE OF VIOLENCE,of Incidents,Male,Female,Male,Female,Type,Arrest
+Abductions,0,,,,,,-
+"",,,,,,,
+Assaults,457,174,283,326,130,456,99.8%
+Intimidation,4,1,3,3,1,4,100.0%
+Murder,0,,,,,,-
+"",,,,,,,
+Robbery,0,,,,,,-
+"",,,,,,,
+Sex Assault,7,2,5,7,0,7,100.0%
+Violation Protection,32,5,27,28,5,33,103.1%
+Other,7,4,3,3,4,7,100.0%
+TOTAL,507,186,321,367,140,507,100.0%
+Albany,72,Big Horn,,Campbell,56
+"",,,,,
+Carbon,3,Converse,6,Crook,1
+"",,,,,
+Fremont,32,Goshen,12,Hot Springs,4
+"",,,,,
+Johnson,7,Laramie,69,Lincoln,16
+"",,,,,
+Natrona,53,Niobrara,,Park,17
+"",,,,,
+Platte,3,Sheridan,56,Sublette,11
+"",,,,,
+Sweetwater,57,Teton,9,Uinta,19
+"",,,,,
+Washakie,1,Weston,4,State Total,508
+Carbon,3,Converse,6,Crook,1
+"",,,,,
+Fremont,32,Goshen,12,Hot Springs,4
+"",,,,,
+Johnson,7,Laramie,69,Lincoln,16
+"",,,,,
+Natrona,53,Niobrara,,Park,17
+"",,,,,
+Platte,3,Sheridan,56,Sublette,11
+"",,,,,
+Sweetwater,57,Teton,9,Uinta,19
+"",,,,,
+Washakie,1,Weston,4,State Total,508
+JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC,TOTAL
+203,148,164,164,204,169,185,185,157,195,176,137,"2,087"
+Sunday,90,Thursday,59
+"",,,
+Monday,50,Friday,82
+"",,,
+Tuesday,81,Saturday,93
+"",,,
+Wednesday,53,Total,508
+00:01 - 01:59,471,12:00 - 13:59,419
+"",,,
+02:00 - 03:59,297,14:00 - 15:59,399
+"",,,
+04:00 - 05:59,126,16:00 - 17:59,540
+"",,,
+06:00 - 07:59,142,18:00 - 19:59,623
+"",,,
+08:00 - 09:59,257,20:00 - 21:59,653
+"",,,
+10:00 - 11:59,306,22:00 - 23:59,609
+"",,,
+"",,Total,"4,842"
+Arrested,Referred to Social Agency,
+"",,
+Mediation by Officer,Separated from Premises,
+"",,
+Offender Not Found,Other,
+"",,
+Papers Filed Against,Total,0
+Spouse,110,Former Spouse,16
+"",,,
+Parent,22,Other Relative,12
+"",,,
+Other household Member,119,Former Other Household Member,2
+"",,,
+Child,45,Dating,115
+"",,,
+Sibling,22,Former Dating,45
+"",,,
+Unknown,,Total,508
+Victim Age,,Offender Age,
+"",,,
+1 - 17,55,16 -17,17
+"",,,
+18 - 29,181,18 -29,184
+"",,,
+30 - 39,130,30 -39,161
+"",,,
+40 - 59,127,40 -59,137
+"",,,
+60 & Over,14,60 & Over,6
+"",,,
+No Age Given,1,No Age Given,2
+"",,,
+Total,508,Total,507
+"",,,Offenders,,Offenders
+"",,,,,
+"",Number of Victims,Victims Under 18,Male,Female,Under 18
+"",,,,,
+Female,"3,278",240,"2,898",374,53
+Male,"1,570",195,480,"1,087",95
+Total,"4,848",435,"3,378","1,461",148
+Firearm,2,Other Dangerous Weapon,23
+Knife/Cutting Instrument,11,No Weapon,471
+Unknown,0,Total,507
+None,205,Minor Injuries,284
+Broken Bones,6,Other Major Injury,3
+Death,0,Loss of Teeth,1
+Internal Injures,1,Unconsciousness,4
+Severe Lacerations,4,Total,508
+"",,,,,,,,
+"",,,Type of Weapon,,,Type of Assignment,,
+"",,Total,"Knife Other Hand,",,One-Man,Detective,,
+"",,Assaults,"or Other Danger Fists,",Two-Man,,Special Other,,
+"",,,Firearm,,Vehicle,Assisted Assisted,Assisted,Cleared
+"",,by,"Cutting ous Feet,",Vehicle,,Assign. Alone,,
+"",,,,,Alone,,,
+"",,Weapon,Instrument Weapon Etc.,,,Alone,,
+"",Type of Activity,A,B C D E,F,G,H I J K,L,M
+"",,,,,,,,
+"",,,,,,,,
+1,"Responding to ""Disturbance"" Call",5,5,,3,1 1,,
+2,Burglaries in progress or pursuing burglary,,,,,,,
+"",,,,,,,,
+"",suspect,,,,,,,
+3,Robberies in progress or pursuing robbery suspect,,,,,,,
+4,Attempting other arrest,,,,,,,
+5,"Civil disorder (riot, mass disobedience)",,,,,,,
+6,"Handling,  transporting, custody of prisoners",10,10,,2,2,6,
+7,Investigation suspicious persons or circumstances,,,,,,,
+8,Ambush - no warning,,,,,,,
+9,Mentally deranged,,,,,,,
+1  0,Traffic pursuits and stops,,,,,,,
+1  1,All others,2,2,,,2,,
+1,TOTALS,17,0 0 0 17,0,5,5 0 0 1,6,0
+2,,,,,,,,
+13,Number with personal injury,6,6
+"",,,
+14,Number without personal injury,11,11
+"",,,,,,,
+"",,AM 2,1,0,0,0,0
+15,,,,,,,
+"",Time of Assaults,PM 4,0,2,3,1,2
+"",,,,,,,
+"",10:01 - 12:00,12:01 -2:00,2:01 - 4:00,4:01 - 6:00,6:01 - 8:00,8:01 - 10:00,

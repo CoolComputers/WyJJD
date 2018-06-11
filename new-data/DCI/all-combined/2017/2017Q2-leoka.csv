@@ -1,0 +1,25 @@
+"",,,Type of Weapon,,,,Type of Assignment,,
+"",,,,,,One-Man,,,
+"",,,,,,,Detective,,
+"",Total,,Knife or,"Hands,",Two-,,Special Assign.,Other,
+"",Assaults,,Other Other,"Fists,",Man,Vehicle,,,
+"",by,,Cutting Dangerous,"Feet,",Vehicle,Alone Assisted,,,
+Type of Activity,Weapon,Firearm,Instrument Weapon,Etc.,,,Alone Assisted,Alone Assisted,Cleared
+"",A,B,C D,E,F,G H,I J,K L,M
+"Responding to ""Disturbance"" Call",2,1,,1,,2,,,2
+Burglaries in progress or pursuing,,,,,,,,,
+burglary suspect,2,,,2,,2,,,
+Robberies in progress or pursuing,,,,,,,,,
+robbery suspect,4,4,,,,,4,,
+Attempting other arrest,2,,,2,,2,,,2
+"Civil disorder (riot, mass",,,,,,,,,
+disobedience),0,,,,,,,,
+"Handling,  transporting, custody of",,,,,,,,,
+prisoners,8,,,8,,1 1,,2 4,7
+Investigation suspicious persons or,,,,,,,,,
+circumstances,1,,,1,,1,,,1
+4Ambush - no warning,0,,,,,,,,
+Mentally deranged,1,,,1,,1,,,
+Traffic pursuits and stops,0,,,,,,,,
+All others,1,,1,,,,,1,1
+TOTALS,21,5,0 1,15,0,1 9,0 4,2 5,13
