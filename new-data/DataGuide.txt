@@ -19,3 +19,6 @@ https://www.bjs.gov/ucrdata/Search/Crime/State/RunCrimeStatebyState.cfm
 
 oojdp/
 - juvenile population data: https://www.ojjdp.gov/ojstatbb/ezapop/asp/source.asp
+
+case-counts/
+- 
