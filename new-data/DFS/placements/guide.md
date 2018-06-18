@@ -16,7 +16,7 @@ MNELSO3-7 -Type=Probation/judicial district=Judicial District 8
 MNELSO3-8 -Type=Probation/judicial district=Judicial District 9  
 
 ## Cleaning Process
-Report PDF -> Adobe Acrobat -> Export PDF to Excel .xlsx -> Excel export .xlsx as .csv(text) -> clean.ipynb -> combined.csv
+Report PDF -> Adobe Acrobat -> Export PDF to Excel .xlsx -> Excel export .xlsx as .csv(text) -> cleaner.ipynb -> combined.csv
 
 ## Legend
 |Data Field|Field Description|

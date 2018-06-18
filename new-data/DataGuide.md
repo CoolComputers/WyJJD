@@ -1,18 +1,21 @@
-## DCI/ - extracted from reports directly from Wyoming DCI webpage
-*Needs Source*
+## DCI/
+- annual_report/ - Taken from Wyoming Division of Criminal Investigation. Vist: http://wyomingdci.wyo.gov/dci-criminal-justice-information-systems-section/uniform-crime-reporting
+- juvenile-arrests/ - Juvenile Arrest Data
+  - Source: Information request to Wyoming Division of Criminal Investigation
+  - Contact: dci-ucr@wyo.gov
 
 ## DFS/ - taken from Data/DFS Placement
 *Needs Source*
 
-- placements/ - WyDFS Placement Information: [data guide](placements/guide.md)
+- placements/ - WyDFS Placement Information: [data guide](DFS/placements/guide.md)
 Contact: Marty Nelson (marty.nelson@wyo.gov)  
 Report Title: Placement Type (of those in care)  
 Report Description: The number/percent of children on the caseload on the last day of each report period, by the level of care they were in on that day  
 Report Time Period: January 1, 2012 - May 31, 2018 (Monthly)  
 Level: Statewide  
 Reporting Time Period: January 1,2012 - May 31, 2018(Monthly)
- 
-## school-discipline/ - school crime data
+
+## school-discipline/ - School Crime Data
 *Needs Source*
 
 ## census-info/ -
