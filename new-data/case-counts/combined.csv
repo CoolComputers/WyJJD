@@ -1,5 +1,4 @@
-Year,Reporting Counties,Population Estimates,Population Estimates,Population Estimates,Delinquency,Delinquency,Status,Status,Dependency,Dependency
-Year,County Name,Total,10 Through Upper Age,0 Through Upper Age,Petition,Non-petition,Petition,Non-petition,Petition,Non-petition
+Year,County Name,Total Population Estimates,10 Through Upper Age Estimates,0 Through Upper Age Estimates,Delinquency Petition,Delinquency Non-petition,Status Petition,Status Non-petition,Dependency Petition,Dependency Non-petition
 1997,"Albany","29,700","2,700","5,800","45","--","10","--","17","--"
 1997,"Big Horn","11,000","1,600","3,000","45","--","*","--","*","--"
 1997,"Campbell","32,100","5,400","10,800","65","--","11","--","10","--"
