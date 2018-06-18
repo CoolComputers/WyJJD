@@ -19,6 +19,20 @@ https://www.bjs.gov/ucrdata/Search/Crime/State/RunCrimeStatebyState.cfm
 
 oojdp/
 - juvenile population data: https://www.ojjdp.gov/ojstatbb/ezapop/asp/source.asp
+See https://www.ojjdp.gov/ojstatbb/ezapop/asp/source.asp for citation by year.
+Citation:
+National Center for Juvenile Justice (December 6, 2017). Juvenile Arrest Rates by Offense, Sex, and Race.
+  Online. Available: http://www.ojjdp.gov/ojstatbb/crime/excel/JAR_2016.xls.
 
-case-counts/
-- 
+case-counts/ - Juvenile Court Case Counts by County for Wyoming
+Citation:
+Stahl, A. Kang, W., and Wan, Y. (2002).
+"Easy Access to State and County Juvenile Court Case Counts, 2015. Online. Available: http://www.ojjdp.gov/ojstatbb/ezaco/."
+
+"*Denotes case counts greater than zero and less than five."
+
+"Data are either not available or are not reliable for publication."
+"Source: Supreme Court of Wyoming Court Services"
+"1. Delinquency figures are petitions filed."
+"2. Status figures are petitions filed."
+"3. Dependency figures are petitions filed."
