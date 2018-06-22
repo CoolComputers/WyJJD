@@ -1,0 +1,17 @@
+csv|albany county|age by ethnicity|2015
+selState=56&selCounty=1&selLowerYear=1&selUpperYear=1&selLowerAge=1&selUpperAge=1&row_var=v05&col_var=v04&display_type=counts&export_file=yes&printer_friendly=&v0126=v0126
+
+csv|albany county|age by ethnicity|2016
+selState=56&selCounty=1&selLowerYear=1&selUpperYear=1&selLowerAge=1&selUpperAge=1&row_var=v05&col_var=v04&display_type=counts&export_file=yes&printer_friendly=&v0127=v0127
+
+csv|big horn county|age by ethnicity|2016
+selState=56&selCounty=3&selLowerYear=1&selUpperYear=1&selLowerAge=1&selUpperAge=1&row_var=v05&col_var=v04&display_type=counts&export_file=yes&printer_friendly=&v0127=v0127
+
+csv|albany county|age by race|2016
+selState=56&selCounty=1&selLowerYear=1&selUpperYear=1&selLowerAge=1&selUpperAge=1&row_var=v05&col_var=v03&display_type=counts&export_file=yes&printer_friendly=&v0127=v0127
+
+csv|campbell county|age by race|2016
+selState=56&selCounty=5&selLowerYear=1&selUpperYear=1&selLowerAge=1&selUpperAge=1&row_var=v05&col_var=v03&display_type=counts&export_file=yes&printer_friendly=&v0127=v0127
+
+csv|weston county|age by race|1990 (<<--EARLIEST DATE)
+selState=56&selCounty=45&selLowerYear=1&selUpperYear=1&selLowerAge=1&selUpperAge=1&row_var=v05&col_var=v03&display_type=counts&export_file=yes&printer_friendly=&v011=v011
