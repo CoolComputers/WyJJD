@@ -1,0 +1,36 @@
+The following reports attempt to combine multiple sources of data in order to deliver an overview and understanding of juvenile justice statistics both on the state and county levels. 
+
+Multiple sources of data was used for these reports in order to generate a better understanding of the state of affairs than provided by any single source.
+
+This report was generated and compiled in order to better inform all those involved in the juvenile justice system within the state of wyoming. By providing judges, attornies, and civil servants with informative data we hope to provide them with the tools to make better decisions and provide better services for those juveniles in care.
+
+All of the raw data used in the reports within is available for download. This is to further assist in the process of sharing and collecting the data necessary to providing educated decisions about a juveniles future. 
+All of the code used to generate these reports is also available for download and customization, further providing other juvenile justice services with powerful, conglomerative data analysis tools.
+
+Any additional data sources are welcome, and if you believe that some data being collected by your agency can be used within these reports please contact us at wyoclc@wyoclc.org.
+
+
+To learn more technical details about the project as well as data sources and citations, please visit: https://github.com/coolcomputers/WyJJD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

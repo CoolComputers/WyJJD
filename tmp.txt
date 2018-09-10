@@ -1,0 +1,98 @@
+data_folder = '../new-data/'
+
+
+census_folder = data_folder+'census-info/'
+population_data_file = census_folder+'census-factfinder/census-cleaned.csv'
+population_agegroup_data_file = 
+demographic_data_file = data_folder+'ojjdp/population-data/combined.csv'#phasing out
+dci_data_folder = data_folder+'DCI/all-combined/'
+dci_index_crimes = dci_data_folder+'index-offenses/'
+dfs_afcars_data_file = 
+dfs_county_data_file = 
+dfs_plc_data_file = 
+ori_data_file = 
+placements_folder = data_folder+'DFS/placements/'
+placements_data_file = placements_folder+'combined1.csv'
+case_count_data_file = data_folder+'case-counts/combined.csv'
+
+
+
+
+overview = dfunct.getOverview()#not used
+dfs = dfunct.getDFS()#afcars, county, plc = ['DFS/DFS_12-16-AFCARS-CLEAN.csv','DFS/DFS_12-16-Placements-ByCounty-CLEAN.csv','DFS/DFS_12-16-Placements-ByPLC-CLEAN.csv']
+
+##agegroup_demographic_data = dfunct.getDemographic_By_AgeGroup() = 'ojjdp/population-data/population_agegroup_ethnicity.csv'
+
+population_data = dfunct.getPopulationData()#phasing out?
+
+-----------
+##school = dfunct.getSchool() = 'school-discipline/SchoolDiscipline_2007-17_Combined-CSV2.csv'
+school_county_rates = dfunct.getSchool_county_rates(school,agegroup_demographic_data)
+school_state_rates = dfunct.getSchool_state_rates(school,agegroup_demographic_data)
+------------
+
+juvenile_arrests = dfunct.getORIData(agegroup_demographic_data) = 'juvenile-arrests/ori_juvenile_arrest_{}-{}_CLEAN.csv'.format(ORI_Begin_Year,ORI_End_Year)
+
+arrest_totals = dfunct.getStateTotalArrests(juvenile_arrests,agegroup_demographic_data)
+
+-------------
+#no new file
+judicial_district_population_data = dfunct.getJudicialDistrictJuvenilePopulations(agegroup_demographic_data)
+
+-------------
+placement_data = dfunct.getJudicialPlacementData() = 'DFS/placements/combined1.csv'
+placement_rates_data,state_placement_rates_data = dfunct.getJudicialPlacementRates(placement_data,judicial_district_population_data)
+
+-------------
+demographic_data = dfunct.getDemographicData() = 'ojjdp/population-data/combined.csv'#phasing out
+
+
+court_case_counts = dfunct.getCourtCaseNumbersData() = 'case-counts/combined.csv'
+
+
+## OLD DATA GUIDE
+DCI - extracted from reports directly from Wyoming DCI webpage
+
+DFS - taken from Data/DFS Placement
+
+From-Email - contains originial files sent in email between Sam Kanish and Wyoclc
+
+School - school crime data. Taken from Data/School Discipline?
+
+census-info/ -
+- WyEADiv - Taken from the Wyoming Economic Analysis Division
+
+census-factfinder/:
+Annual Estimates of the Resident Population: April 1, 2010 to July 1, 2017
+Source: U.S. Census Bureau, Population Division
+Release Dates: For the United States, regions, divisions, states, and Puerto Rico Commonwealth, December 2017. For counties, municipios, metropolitan statistical areas, micropolitan statistical areas, metropolitan divisions, and combined statistical areas, March 2018. For cities and towns (incorporated places and minor civil divisions), May 2018.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
