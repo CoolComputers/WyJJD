@@ -6,6 +6,9 @@ This project contains two main folders, new-data/ which contains all data compil
 
 [Click-here](https://github.com/coolcomputers/WyJJD/new-data/DataGuide.md) to view a description of all available sources of data.
 
+# View Reports
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CoolComputers/WyJJD/master?filepath=code-report%2FDisplay_CountySnapshot.ipynb) - County Snapshot Interactive Report  
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CoolComputers/WyJJD/master?filepath=code-report%2FDisplay_CountySnapshot.ipynbcode-report%2FDisplay_StateStats_Exploratory.ipynb) - State Exploratory Graphs. DISCLAIMER: these are merely experimental graphs to test different data representations.
 
 ---
 
