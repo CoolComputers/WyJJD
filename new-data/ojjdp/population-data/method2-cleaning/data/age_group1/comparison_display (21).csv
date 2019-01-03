@@ -1,0 +1,36 @@
+"Easy Access to Juvenile Populations: County Comparisons"
+"Table:    Race by County in Wyoming"
+
+"Selecting:"
+"Year = 2011"    
+"Age = 11, 12, 13, 14, 15, 16, 17"    
+
+"counts","White","Black","American Indian","Asian","Total",
+"All Counties","47100","906","1985","504","50495",
+"Albany County","1949","52","26","59","2086",
+"Big Horn County","1220","12","10","8","1250",
+"Campbell County","4541","50","87","34","4712",
+"Carbon County","1314","13","28","11","1366",
+"Converse County","1291","27","10","4","1332",
+"Crook County","625","8","9","1","643",
+"Fremont County","2451","27","1189","16","3683",
+"Goshen County","1111","16","20","6","1153",
+"Hot Springs County","364","8","7","5","384",
+"Johnson County","707","9","7","3","726",
+"Laramie County","7564","330","142","128","8164",
+"Lincoln County","1873","18","24","9","1924",
+"Natrona County","6356","146","130","70","6702",
+"Niobrara County","199","6","0","1","206",
+"Park County","2281","20","38","20","2359",
+"Platte County","728","4","6","9","747",
+"Sheridan County","2400","30","62","18","2510",
+"Sublette County","895","10","19","6","930",
+"Sweetwater County","4077","78","79","39","4273",
+"Teton County","1423","6","20","32","1481",
+"Uinta County","2339","21","33","16","2409",
+"Washakie County","815","8","25","8","856",
+"Weston County","577","7","14","1","599",
+
+"Suggested Citation: Puzzanchera, C., Sladky, A. and Kang, W. (2018). "
+"Easy Access to Juvenile Populations: 1990-2017. Online."
+"Available: https://www.ojjdp.gov/ojstatbb/ezapop/"

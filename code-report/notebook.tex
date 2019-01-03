@@ -1,0 +1,1230 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{County-5Year-Report}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}174}]:} \PY{o}{\PYZpc{}}\PY{o}{\PYZpc{}}\PY{n+nx}{javascript}
+          \PY{n+nx}{IPython}\PY{p}{.}\PY{n+nx}{OutputArea}\PY{p}{.}\PY{n+nx}{prototype}\PY{p}{.}\PY{n+nx}{\PYZus{}should\PYZus{}scroll} \PY{o}{=} \PY{k+kd}{function}\PY{p}{(}\PY{n+nx}{lines}\PY{p}{)} \PY{p}{\PYZob{}}
+              \PY{k}{return} \PY{k+kc}{false}\PY{p}{;}
+          \PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+
+    
+    \begin{verbatim}
+<IPython.core.display.Javascript object>
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}175}]:} \PY{c+c1}{\PYZsh{}File:CountySnapshots.ipynb}
+          \PY{c+c1}{\PYZsh{}Author: Rafer Cooley}
+          \PY{c+c1}{\PYZsh{}Desc:Generate County Snapshots of Juvenile Data}
+          \PY{k+kn}{from} \PY{n+nn}{ipywidgets} \PY{k}{import} \PY{n}{widgets}
+          \PY{k+kn}{from} \PY{n+nn}{ipywidgets} \PY{k}{import} \PY{n}{interactive}
+          \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{display}\PY{p}{,} \PY{n}{HTML}\PY{p}{,} \PY{n}{clear\PYZus{}output}
+          \PY{c+c1}{\PYZsh{}from pivottablejs import pivot\PYZus{}ui}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+          \PY{k+kn}{import} \PY{n+nn}{csv}
+          \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+          \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+          \PY{k+kn}{import} \PY{n+nn}{os}\PY{o}{,} \PY{n+nn}{sys}
+          \PY{k+kn}{import} \PY{n+nn}{subprocess}
+          \PY{k+kn}{import} \PY{n+nn}{base64} \PY{c+c1}{\PYZsh{}for createdownloadlink}
+          \PY{c+c1}{\PYZsh{}import data\PYZus{}functions as dfunct}
+          
+          \PY{k+kn}{import} \PY{n+nn}{plotly} \PY{k}{as} \PY{n+nn}{pl}
+          \PY{k+kn}{import} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{figure\PYZus{}factory} \PY{k}{as} \PY{n+nn}{ff}
+          \PY{k+kn}{import} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{graph\PYZus{}objs} \PY{k}{as} \PY{n+nn}{go}
+          
+          \PY{n}{pl}\PY{o}{.}\PY{n}{offline}\PY{o}{.}\PY{n}{init\PYZus{}notebook\PYZus{}mode}\PY{p}{(}\PY{n}{connected}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+          
+          \PY{o}{\PYZpc{}}\PY{k}{run} getdata.ipynb
+          \PY{c+c1}{\PYZsh{}\PYZpc{}run crimestats.ipynb}
+\end{Verbatim}
+
+
+    
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.49191465270160273
+-0.08908284514859
+-0.4060978467466868
+0.5150811047786057
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}176}]:} \PY{n}{my\PYZus{}styles} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+          \PY{l+s+s2}{\PYZlt{}style\PYZgt{}}
+          \PY{l+s+s2}{@media screen}\PY{l+s+s2}{\PYZob{}}
+          \PY{l+s+s2}{.container }\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{ width:90}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{ !important; \PYZcb{}}
+          \PY{l+s+s2}{.page\PYZhy{}break }\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{page\PYZhy{}break\PYZhy{}after:always;\PYZcb{}}
+          \PY{l+s+s2}{\PYZcb{}}
+          \PY{l+s+s2}{@media print}\PY{l+s+s2}{\PYZob{}}
+          \PY{l+s+s2}{.container }\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{ width:100}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{ !important; \PYZcb{}}
+          \PY{l+s+s2}{.page\PYZhy{}break }\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{page\PYZhy{}break\PYZhy{}after:always;\PYZcb{}}
+          \PY{l+s+s2}{\PYZcb{}}
+          \PY{l+s+s2}{\PYZlt{}/style\PYZgt{}}
+          \PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+          \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{my\PYZus{}styles}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    
+    \begin{verbatim}
+<IPython.core.display.HTML object>
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}177}]:} \PY{n}{dfunct} \PY{o}{=} \PY{n}{DataFunctions}\PY{p}{(}\PY{p}{)}
+          \PY{n}{overview} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getOverview}\PY{p}{(}\PY{p}{)}\PY{c+c1}{\PYZsh{}not used}
+          \PY{n}{dfs} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getDFS}\PY{p}{(}\PY{p}{)}\PY{c+c1}{\PYZsh{}afcars, county, plc}
+          
+          \PY{n}{agegroup\PYZus{}demographic\PYZus{}data} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getDemographic\PYZus{}By\PYZus{}AgeGroup}\PY{p}{(}\PY{p}{)}
+          \PY{n}{population\PYZus{}data} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getPopulationData}\PY{p}{(}\PY{p}{)}\PY{c+c1}{\PYZsh{}phasing out?}
+          \PY{c+c1}{\PYZsh{}arrest\PYZus{}totals = dfunct.getStateTotalArrests(juvenile\PYZus{}arrests,population\PYZus{}data)}
+          
+          \PY{n}{school} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getSchool}\PY{p}{(}\PY{p}{)}
+          \PY{n}{school\PYZus{}county\PYZus{}rates} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getSchool\PYZus{}county\PYZus{}rates}\PY{p}{(}\PY{n}{school}\PY{p}{,}\PY{n}{agegroup\PYZus{}demographic\PYZus{}data}\PY{p}{)}
+          \PY{n}{school\PYZus{}state\PYZus{}rates} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getSchool\PYZus{}state\PYZus{}rates}\PY{p}{(}\PY{n}{school}\PY{p}{,}\PY{n}{agegroup\PYZus{}demographic\PYZus{}data}\PY{p}{)}
+          
+          \PY{n}{juvenile\PYZus{}arrests} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getORIData}\PY{p}{(}\PY{n}{agegroup\PYZus{}demographic\PYZus{}data}\PY{p}{)}
+          \PY{n}{arrest\PYZus{}totals} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getStateTotalArrests}\PY{p}{(}\PY{n}{juvenile\PYZus{}arrests}\PY{p}{,}\PY{n}{agegroup\PYZus{}demographic\PYZus{}data}\PY{p}{)}
+          
+          \PY{n}{judicial\PYZus{}district\PYZus{}population\PYZus{}data} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getJudicialDistrictJuvenilePopulations}\PY{p}{(}\PY{n}{agegroup\PYZus{}demographic\PYZus{}data}\PY{p}{)}
+          \PY{n}{placement\PYZus{}data} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getJudicialPlacementData}\PY{p}{(}\PY{p}{)}
+          \PY{n}{placement\PYZus{}rates\PYZus{}data}\PY{p}{,}\PY{n}{state\PYZus{}placement\PYZus{}rates\PYZus{}data} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getJudicialPlacementRates}\PY{p}{(}\PY{n}{placement\PYZus{}data}\PY{p}{,}\PY{n}{judicial\PYZus{}district\PYZus{}population\PYZus{}data}\PY{p}{)}
+          
+          \PY{n}{demographic\PYZus{}data} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getDemographicData}\PY{p}{(}\PY{p}{)}
+          \PY{n}{court\PYZus{}case\PYZus{}counts} \PY{o}{=} \PY{n}{dfunct}\PY{o}{.}\PY{n}{getCourtCaseNumbersData}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n}{data\PYZus{}sources\PYZus{}for\PYZus{}citation} \PY{o}{=} \PY{p}{[}
+              
+          \PY{p}{]}
+          
+          \PY{c+c1}{\PYZsh{}qualifiers for ORI data}
+          \PY{n}{violent\PYZus{}felony} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Manslaughter}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Rape}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Robbery}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Aggravated\PYZhy{}Assault}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+          \PY{n}{lesser\PYZus{}offenses} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Burglary}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Larceny\PYZhy{}Theft}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Motor\PYZhy{}Vehicle\PYZhy{}Theft}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Arson}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Other\PYZhy{}Assaults}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Forgery\PYZhy{}Counterfeiting}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraud}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Embezzlement}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Stolen\PYZhy{}Property}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Vandalism}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Weapons}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Prostitution}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Sex\PYZhy{}Offenses}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Drug\PYZhy{}Abuse\PYZhy{}Violations}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Drug\PYZhy{}Abuse\PYZhy{}Violations\PYZhy{}Possession}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gambling\PYZhy{}Offenses}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Offenses\PYZhy{}Against\PYZhy{}Family\PYZhy{}Children}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Driving\PYZhy{}Under\PYZhy{}the\PYZhy{}Influence}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Liquor\PYZhy{}Laws}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Drunkenness}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Disorderly\PYZhy{}Conduct}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{All\PYZhy{}Other\PYZhy{}Offenses\PYZhy{}Except\PYZhy{}Traffic}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Suspicion}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Curfew\PYZhy{}Loitering\PYZhy{}Law\PYZhy{}Violations}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Run\PYZhy{}a\PYZhy{}ways}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Vagrancy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+          
+          \PY{c+c1}{\PYZsh{}qualifiers for placements data}
+          \PY{n}{placement\PYZus{}county\PYZus{}districts} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Laramie}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Albany}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Carbon}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Uinta}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Sweetwater}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Lincoln}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Johnson}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Sheridan}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Big Horn}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Park}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Hot Springs}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Washakie}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Campbell}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Weston}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Crook}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Natrona}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Converse}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Niobrara}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Goshen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Platte}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Teton}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fremont}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Sublette}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}178}]:} \PY{c+c1}{\PYZsh{}Plotly PDF Reporting Helpers}
+          \PY{c+c1}{\PYZsh{}https://plot.ly/python/pdf\PYZhy{}reports/}
+          \PY{k}{def} \PY{n+nf}{report\PYZus{}block\PYZus{}template}\PY{p}{(}\PY{n}{report\PYZus{}type}\PY{p}{,} \PY{n}{graph\PYZus{}url}\PY{p}{,} \PY{n}{caption}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+              \PY{k}{if} \PY{n}{report\PYZus{}type} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{interactive}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+                  \PY{n}{graph\PYZus{}block} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}iframe style=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{border: none;}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{ src=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+si}{\PYZob{}graph\PYZus{}url\PYZcb{}}\PY{l+s+s1}{.embed}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{ width=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{100}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{ height=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{600px}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZgt{}\PYZlt{}/iframe\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}
+              \PY{k}{elif} \PY{n}{report\PYZus{}type} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{static}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+                  \PY{n}{graph\PYZus{}block} \PY{o}{=} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}
+                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}a href=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+si}{\PYZob{}graph\PYZus{}url\PYZcb{}}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{ target=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZus{}blank}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZgt{}}\PY{l+s+s1}{\PYZsq{}} \PY{c+c1}{\PYZsh{} Open the interactive graph when you click on the image}
+                          \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}img style=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{height: 400px;}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{ src=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+si}{\PYZob{}graph\PYZus{}url\PYZcb{}}\PY{l+s+s1}{.png}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}
+                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}/a\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          
+              \PY{n}{report\PYZus{}block} \PY{o}{=} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}} \PY{o}{+}
+                  \PY{n}{graph\PYZus{}block} \PY{o}{+} 
+                  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}caption\PYZcb{}}\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{c+c1}{\PYZsh{} Optional caption to include below the graph}
+                  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}br\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}      \PY{o}{+} \PY{c+c1}{\PYZsh{} Line break}
+                  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}a href=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+si}{\PYZob{}graph\PYZus{}url\PYZcb{}}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{ style=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{color: rgb(190,190,190); text\PYZhy{}decoration: none; font\PYZhy{}weight: 200;}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{ target=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZus{}blank}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+} 
+                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Click to comment and see the interactive graph}\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{c+c1}{\PYZsh{} Direct readers to Plotly for commenting, interactive graph}
+                  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}/a\PYZgt{}}\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} 
+                  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}br\PYZgt{}}\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} 
+                  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}hr\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} horizontal line                       }
+          
+              \PY{k}{return} \PY{n}{report\PYZus{}block}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{graph\PYZus{}url}\PY{o}{=}\PY{n}{graph\PYZus{}url}\PY{p}{,} \PY{n}{caption}\PY{o}{=}\PY{n}{caption}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}179}]:} \PY{c+c1}{\PYZsh{}Show html table functions}
+          \PY{n}{idx} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{IndexSlice}
+          
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}afcars\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{n}{sources} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}h3\PYZgt{}Afcars Data\PYZlt{}/h3\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{dfs}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing DFS data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+                  
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}county\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}h3\PYZgt{}DFS By County\PYZlt{}/h3\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{dfs}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing DFS data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+                  
+          \PY{c+c1}{\PYZsh{}Table Columns}
+          \PY{c+c1}{\PYZsh{}Manslaughter,Rape,Robbery,Aggravated\PYZhy{}Assault,Burglary,Larceny\PYZhy{}Theft,Motor\PYZhy{}Vehicle\PYZhy{}Theft,Arson}
+          \PY{c+c1}{\PYZsh{}Other\PYZhy{}Assaults,Forgery\PYZhy{}Counterfeiting,Fraud,Embezzlement,Stolen\PYZhy{}Property,Vandalism,Weapons}
+          \PY{c+c1}{\PYZsh{}Prostitution,Sex\PYZhy{}Offenses,Drug\PYZhy{}Abuse\PYZhy{}Violations,Drug\PYZhy{}Abuse\PYZhy{}Violations\PYZhy{}Possession,Gambling\PYZhy{}Offenses}
+          \PY{c+c1}{\PYZsh{}Offenses\PYZhy{}Against\PYZhy{}Family\PYZhy{}Children,Driving\PYZhy{}Under\PYZhy{}the\PYZhy{}Influence,Liquor\PYZhy{}Laws,Drunkenness}
+          \PY{c+c1}{\PYZsh{}Disorderly\PYZhy{}Conduct,All\PYZhy{}Other\PYZhy{}Offenses\PYZhy{}Except\PYZhy{}Traffic,Suspicion,Curfew\PYZhy{}Loitering\PYZhy{}Law\PYZhy{}Violations}
+          \PY{c+c1}{\PYZsh{}Run\PYZhy{}a\PYZhy{}ways,Vagrancy}
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}felony\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{tmp\PYZus{}felony} \PY{o}{=} \PY{n}{juvenile\PYZus{}arrests}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{n}{violent\PYZus{}felony}\PY{p}{]}
+                  \PY{n}{tmp\PYZus{}felony}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Totals}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{tmp\PYZus{}felony}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}center\PYZgt{}\PYZlt{}h3\PYZgt{}Violent Felony\PYZlt{}/h3\PYZgt{}\PYZlt{}/center\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{tmp\PYZus{}felony}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)} 
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing ORI data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}lesser\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{tmp\PYZus{}lesser} \PY{o}{=} \PY{n}{juvenile\PYZus{}arrests}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{n}{lesser\PYZus{}offenses}\PY{p}{]}
+                  \PY{n}{tmp\PYZus{}lesser}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Totals}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{tmp\PYZus{}lesser}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}center\PYZgt{}\PYZlt{}h3\PYZgt{}Lesser Offenses\PYZlt{}/h3\PYZgt{}\PYZlt{}/center\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{tmp\PYZus{}lesser}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing ORI data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}    
+                  
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}school\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{school}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing School data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}overview\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}\PY{c+c1}{\PYZsh{}NOT USED?}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{overview}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing Overview data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{}PLACEMENTS}
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}placements\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{c+c1}{\PYZsh{}\PYZsq{}period,Total Children in Care,Psychiatric RTC,Relative foster home,Supervised Independent Living,}
+              \PY{c+c1}{\PYZsh{}Long Term FC Non Relative,Long Term FC Relative,Interim,Boys School,State Hospital,Girls School,}
+              \PY{c+c1}{\PYZsh{}Hospital,Total Family\PYZhy{}like setting,Therapeutic FC Non Relative,Specialized FC Relative,Jail,}
+              \PY{c+c1}{\PYZsh{}Pre\PYZhy{}adoptive home,Crisis Center,Detention,district,Therapeutic FC Relative,Trial Home Visit,}
+              \PY{c+c1}{\PYZsh{}Runaway,Total Group Care,Non\PYZhy{}relative foster home,Residential Treatment,Group Home,Specialized FC Non Relative,Unknown}
+              \PY{c+c1}{\PYZsh{}     Supervised Independent Living \PYZlt{}\PYZlt{}\PYZhy{}\PYZhy{}\PYZhy{}????}
+              \PY{c+c1}{\PYZsh{}GROUP CATEGORIES(NON RELATIVE)}
+          \PY{c+c1}{\PYZsh{}     Psychiatric RTC}
+          \PY{c+c1}{\PYZsh{}     Long Term FC Non Relative}
+          \PY{c+c1}{\PYZsh{}     Interim,Boys School,State Hospital,Girls School}
+          \PY{c+c1}{\PYZsh{}     Hospital}
+          \PY{c+c1}{\PYZsh{}     Therapeutic FC Non Relative,Jail}
+          \PY{c+c1}{\PYZsh{}     Pre\PYZhy{}adoptive home,Crisis Center,Detention,Trial Home Visit}
+          \PY{c+c1}{\PYZsh{}     Runaway,Total Group Care,Non\PYZhy{}relative foster home,Residential Treatment}
+          \PY{c+c1}{\PYZsh{}     Group Home,Specialized FC Non Relative,Unknown}
+              \PY{c+c1}{\PYZsh{}RELATIVE CATEGORIES}
+              \PY{c+c1}{\PYZsh{}Long Term FC Relative,Total Family\PYZhy{}like setting,Specialized FC Relative,Therapeutic FC Relative}
+              \PY{n}{placement\PYZus{}fields\PYZus{}to\PYZus{}show}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Psychiatric RTC}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Long Term FC Non Relative}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Interim}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Boys School}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{State Hospital}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Girls School}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Hospital}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Therapeutic FC Non Relative}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Jail}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Pre\PYZhy{}adoptive home}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Crisis Center}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Detention}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Trial Home Visit}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Runaway}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Non\PYZhy{}relative foster home}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Residential Treatment}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Group Home}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Specialized FC Non Relative}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Total Group Care}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Total Family\PYZhy{}like setting}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Unknown}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Total Children in Care}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{district\PYZus{}num} \PY{o}{=} \PY{l+m+mi}{0}
+                  \PY{k}{for} \PY{n}{county\PYZus{}arr\PYZus{}idx} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{p}{)}\PY{p}{)}\PY{p}{:}\PY{c+c1}{\PYZsh{}search through county list to match county name with judicial district number}
+                      \PY{k}{if} \PY{n}{county} \PY{o+ow}{in} \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{p}{[}\PY{n}{county\PYZus{}arr\PYZus{}idx}\PY{p}{]}\PY{p}{:}
+                          \PY{n}{district\PYZus{}num} \PY{o}{=} \PY{n}{county\PYZus{}arr\PYZus{}idx}
+                          \PY{c+c1}{\PYZsh{}print(\PYZsq{}found county[\PYZob{}\PYZcb{}:\PYZob{}\PYZcb{}] in arr:\PYZob{}\PYZcb{}\PYZsq{}.format(county,district\PYZus{}num,str(placement\PYZus{}county\PYZus{}districts[district\PYZus{}num])))}
+               
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{placement\PYZus{}data}\PY{p}{[}\PY{n}{placement\PYZus{}fields\PYZus{}to\PYZus{}show}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{district\PYZus{}num}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing Placements data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}county\PYZus{}placements\PYZus{}rates\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{district\PYZus{}num} \PY{o}{=} \PY{l+m+mi}{0}
+                  \PY{k}{for} \PY{n}{county\PYZus{}arr\PYZus{}idx} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{p}{)}\PY{p}{)}\PY{p}{:}\PY{c+c1}{\PYZsh{}search through county list to match county name with judicial district number}
+                      \PY{k}{if} \PY{n}{county} \PY{o+ow}{in} \PY{n}{placement\PYZus{}county\PYZus{}districts}\PY{p}{[}\PY{n}{county\PYZus{}arr\PYZus{}idx}\PY{p}{]}\PY{p}{:}
+                          \PY{n}{district\PYZus{}num} \PY{o}{=} \PY{n}{county\PYZus{}arr\PYZus{}idx}
+                          \PY{c+c1}{\PYZsh{}print(\PYZsq{}found county[\PYZob{}\PYZcb{}:\PYZob{}\PYZcb{}] in arr:\PYZob{}\PYZcb{}\PYZsq{}.format(county,district\PYZus{}num,str(placement\PYZus{}county\PYZus{}districts[district\PYZus{}num])))}
+                  \PY{c+c1}{\PYZsh{}display(HTML(overview.loc[idx[county,year\PYZus{}tup[0]:year\PYZus{}tup[1]], :].to\PYZus{}html()))}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{placement\PYZus{}rates\PYZus{}data}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{district\PYZus{}num}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing county placement rates data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}state\PYZus{}placements\PYZus{}rates\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}   
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{state\PYZus{}placement\PYZus{}rates\PYZus{}data}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing state placement rate data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+              
+          \PY{c+c1}{\PYZsh{}\PYZsh{}CASE COUNTS}
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}case\PYZus{}counts\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{court\PYZus{}case\PYZus{}counts}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n+nb}{str}\PY{p}{(}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{:}\PY{n+nb}{str}\PY{p}{(}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{n}{county}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing Case Counts data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+                  
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}demographic\PYZus{}html}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{k}{try}\PY{p}{:}
+                  \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{demographic\PYZus{}data}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error showing demographic data.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}180}]:} \PY{c+c1}{\PYZsh{} crime stats functions}
+          \PY{c+c1}{\PYZsh{}calculate crime rate per county}
+          \PY{k}{def} \PY{n+nf}{county\PYZus{}crime\PYZus{}rate}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{,}\PY{n}{estimate\PYZus{}per}\PY{p}{)}\PY{p}{:}
+              \PY{c+c1}{\PYZsh{}df = juvenile\PYZus{}arrests.round(\PYZob{}\PYZsq{}Total Incidents\PYZsq{}:0,\PYZsq{}Population 11\PYZhy{}20\PYZsq{}:0,\PYZsq{}Rate\PYZsq{}:2\PYZcb{})}
+              \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{juvenile\PYZus{}arrests}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Total Incidents}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Population 11\PYZhy{}17}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)} 
+              \PY{c+c1}{\PYZsh{}display(HTML(df.loc[idx[county,year\PYZus{}tup[0]:year\PYZus{}tup[1]], :].transpose().to\PYZus{}html()))}
+              \PY{k}{return}
+          
+          \PY{k}{def} \PY{n+nf}{state\PYZus{}crime\PYZus{}rate}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{,}\PY{n}{estimate\PYZus{}per}\PY{p}{)}\PY{p}{:}
+              \PY{n}{year\PYZus{}tup}\PY{o}{=}\PY{p}{(}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+              \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{arrest\PYZus{}totals}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Total Incidents}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Population 11\PYZhy{}17}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{k}{return}
+          
+          \PY{k}{def} \PY{n+nf}{agegroup\PYZus{}demographic}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{)}\PY{p}{:}
+              \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{agegroup\PYZus{}demographic\PYZus{}data}\PY{p}{[}\PY{n}{agegroup\PYZus{}demographic\PYZus{}data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Age Range}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{11\PYZhy{}17}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{year\PYZus{}tup}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}html}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{c+c1}{\PYZsh{}display(HTML(agegroup\PYZus{}demographic\PYZus{}data[agegroup\PYZus{}demographic\PYZus{}data[\PYZsq{}Age Range\PYZsq{}]==\PYZsq{}18\PYZhy{}20\PYZsq{}].loc[idx[county,year\PYZus{}tup[0]:year\PYZus{}tup[1]],:].transpose().to\PYZus{}html()))}
+              \PY{k}{return}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}181}]:} \PY{c+c1}{\PYZsh{}plotly graphing functs}
+              \PY{c+c1}{\PYZsh{} 5 year analysis}
+          \PY{c+c1}{\PYZsh{} display(HTML(\PYZsq{}\PYZlt{}h2\PYZgt{}5 Year State Analysis\PYZsq{}))}
+          \PY{c+c1}{\PYZsh{} display(HTML(\PYZsq{}\PYZlt{}p\PYZgt{}A description of the producut goes here\PYZlt{}/p\PYZgt{}\PYZsq{}))}
+          \PY{n}{marker\PYZus{}colors} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}6699ff}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}00ff99}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}669900}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}ffcc00}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}ff6600}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}ff6600}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+          \PY{k}{def} \PY{n+nf}{generate\PYZus{}rate\PYZus{}data\PYZus{}obj}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,} \PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{:}
+              \PY{n}{years} \PY{o}{=} \PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{begin\PYZus{}year}\PY{p}{)}\PY{p}{,}\PY{n+nb}{int}\PY{p}{(}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}
+          
+              \PY{c+c1}{\PYZsh{}gather counties array}
+              \PY{n}{counties} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{2012}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{2012}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{index}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+              \PY{n}{counties} \PY{o}{=} \PY{p}{[}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{counties}\PY{p}{]}
+              \PY{c+c1}{\PYZsh{}print(counties)}
+          
+              \PY{c+c1}{\PYZsh{}CREATE RATE GRAPH}
+              \PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              
+              \PY{n}{cntr} \PY{o}{=} \PY{l+m+mi}{0}
+              \PY{c+c1}{\PYZsh{}for year in years:}
+              \PY{c+c1}{\PYZsh{}year\PYZus{}avg = np.mean(sum\PYZus{}total[cntr])}
+              \PY{n}{data}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{go}\PY{o}{.}\PY{n}{Bar}\PY{p}{(}
+                  \PY{c+c1}{\PYZsh{}x = counties,}
+                  \PY{n}{x} \PY{o}{=} \PY{n}{years}\PY{p}{,}
+                  \PY{n}{y} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{:}\PY{n}{end\PYZus{}year}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+                  \PY{c+c1}{\PYZsh{}text=str(years),}
+                  \PY{n}{textposition} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{auto}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                  \PY{c+c1}{\PYZsh{}name=years,}
+                  \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number Incidents}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                  \PY{n}{marker}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                      \PY{n}{color}\PY{o}{=}\PY{n}{marker\PYZus{}colors}\PY{p}{[}\PY{n}{cntr}\PY{p}{]}\PY{p}{,}
+                      \PY{n}{line}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                          \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rgb(8,48,107)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                          \PY{n}{width}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}\PY{p}{,}
+                  \PY{p}{)}\PY{p}{,}
+                  \PY{n}{opacity}\PY{o}{=}\PY{l+m+mf}{0.6}
+                  \PY{p}{)}
+              \PY{p}{)}
+          \PY{c+c1}{\PYZsh{}     data.append(go.Scatter(}
+          \PY{c+c1}{\PYZsh{}             x = years,}
+          \PY{c+c1}{\PYZsh{}             y = [year\PYZus{}avg for x in range(len(years))],}
+          \PY{c+c1}{\PYZsh{}             name=\PYZsq{}\PYZob{}\PYZcb{} Average\PYZsq{}.format(year),}
+          \PY{c+c1}{\PYZsh{}             marker=dict(}
+          \PY{c+c1}{\PYZsh{}             color=marker\PYZus{}colors[cntr],}
+          \PY{c+c1}{\PYZsh{}             line=dict(}
+          \PY{c+c1}{\PYZsh{}                 color=\PYZsq{}rgb(8,48,107)\PYZsq{},}
+          \PY{c+c1}{\PYZsh{}                 width=1.5),}
+          \PY{c+c1}{\PYZsh{}         )}
+          \PY{c+c1}{\PYZsh{}         )}
+          \PY{c+c1}{\PYZsh{}     )}
+              
+                  \PY{c+c1}{\PYZsh{}cntr+=1}
+              \PY{k}{return} \PY{n}{data}
+          
+          \PY{k}{def} \PY{n+nf}{generate\PYZus{}pct\PYZus{}change\PYZus{}data\PYZus{}obj}\PY{p}{(}\PY{n}{df}\PY{p}{,}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,} \PY{n}{end\PYZus{}year}\PY{p}{,} \PY{n}{district}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{p}{:}
+              \PY{n}{years} \PY{o}{=} \PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{begin\PYZus{}year}\PY{p}{)}\PY{p}{,}\PY{n+nb}{int}\PY{p}{(}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}
+          \PY{c+c1}{\PYZsh{}     if not district:}
+          \PY{c+c1}{\PYZsh{}         groups = counties}
+          \PY{c+c1}{\PYZsh{}     else:}
+          \PY{c+c1}{\PYZsh{}         groups = [x for x in range(1,10)]}
+              \PY{n}{groups} \PY{o}{=} \PY{n}{years}
+              \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pct}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{pct\PYZus{}change}\PY{p}{(}\PY{p}{)}
+              
+              \PY{n}{objs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{k}{for} \PY{n}{year} \PY{o+ow}{in} \PY{n}{years}\PY{p}{:}
+                  \PY{n}{pct\PYZus{}change\PYZus{}vals}\PY{o}{=}\PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pct}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{year}\PY{p}{:}\PY{n}{year}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                  \PY{n}{objs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pct\PYZus{}change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{pct\PYZus{}change\PYZus{}vals}\PY{p}{\PYZcb{}}\PY{p}{)}
+          
+              \PY{n}{cntr}\PY{o}{=}\PY{l+m+mi}{0}
+              \PY{c+c1}{\PYZsh{}for year in years:}
+              
+              \PY{n}{data}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{go}\PY{o}{.}\PY{n}{Bar}\PY{p}{(}
+                  \PY{n}{x} \PY{o}{=} \PY{n}{groups}\PY{p}{,}
+                  \PY{n}{y} \PY{o}{=} \PY{p}{[}\PY{n}{x}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pct\PYZus{}change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{objs}\PY{p}{]}\PY{p}{,}
+                  \PY{c+c1}{\PYZsh{}text=,}
+                  \PY{c+c1}{\PYZsh{}textposition = \PYZsq{}auto\PYZsq{},}
+                  \PY{c+c1}{\PYZsh{}name=[\PYZsq{}\PYZob{}\PYZcb{} Percent Change\PYZsq{}.format(year) for year in years],}
+                  \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number Incidents}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                  \PY{n}{marker}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                      \PY{n}{color}\PY{o}{=}\PY{n}{marker\PYZus{}colors}\PY{p}{[}\PY{n}{cntr}\PY{p}{]}\PY{p}{,}
+                      \PY{n}{line}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                          \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rgb(8,48,107)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                          \PY{n}{width}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}\PY{p}{,}
+                  \PY{p}{)}\PY{p}{,}
+                  \PY{n}{opacity}\PY{o}{=}\PY{l+m+mf}{0.6}
+                  \PY{p}{)}
+              \PY{p}{)}
+              \PY{n}{year\PYZus{}avg} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{[}\PY{n}{x}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pct\PYZus{}change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{objs}\PY{p}{]}\PY{p}{)}
+              \PY{n}{data}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{go}\PY{o}{.}\PY{n}{Scatter}\PY{p}{(}
+                      \PY{n}{x} \PY{o}{=} \PY{n}{groups}\PY{p}{,}
+                      \PY{n}{y} \PY{o}{=} \PY{p}{[}\PY{n}{year\PYZus{}avg} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{groups}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+                      \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Average}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{)}\PY{p}{,}
+                      \PY{n}{marker}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                      \PY{n}{color}\PY{o}{=}\PY{n}{marker\PYZus{}colors}\PY{p}{[}\PY{n}{cntr}\PY{p}{]}\PY{p}{,}
+                      \PY{n}{line}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                          \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rgb(8,48,107)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                          \PY{n}{width}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}\PY{p}{,}
+                  \PY{p}{)}
+                  \PY{p}{)}
+              \PY{p}{)}
+          
+                  \PY{c+c1}{\PYZsh{}cntr+=1}
+              \PY{k}{return} \PY{n}{data}
+          
+          \PY{c+c1}{\PYZsh{} display(HTML(\PYZsq{}\PYZlt{}h1\PYZgt{}Statewide 5\PYZhy{}year Comparison Charts\PYZlt{}/h1\PYZgt{}\PYZsq{}))}
+          \PY{c+c1}{\PYZsh{} display(HTML(\PYZdq{}\PYZdq{}\PYZdq{}}
+          \PY{c+c1}{\PYZsh{} \PYZlt{}p\PYZgt{}}
+          \PY{c+c1}{\PYZsh{} The following graphs illustrate  a 5 year comparison placement, educational discipline, and juvenile arrest rates broken up by county and/or judicial district.}
+          \PY{c+c1}{\PYZsh{} \PYZlt{}/p\PYZgt{}}
+          \PY{c+c1}{\PYZsh{} \PYZdq{}\PYZdq{}\PYZdq{}))}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}196}]:} \PY{k}{def} \PY{n+nf}{display\PYZus{}arrests\PYZus{}rate\PYZus{}bar}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{:}
+              \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}h2\PYZgt{}Arrest Rates For }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ County }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/h2\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{c+c1}{\PYZsh{}data = generate\PYZus{}rate\PYZus{}data\PYZus{}obj(juvenile\PYZus{}arrests,county,begin\PYZus{}year,end\PYZus{}year)}
+              \PY{n}{years} \PY{o}{=} \PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{begin\PYZus{}year}\PY{p}{)}\PY{p}{,}\PY{n+nb}{int}\PY{p}{(}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}
+          
+              \PY{c+c1}{\PYZsh{}gather counties array}
+              \PY{n}{counties} \PY{o}{=} \PY{n}{juvenile\PYZus{}arrests}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{2012}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{2012}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{index}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+              \PY{n}{counties} \PY{o}{=} \PY{p}{[}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{counties}\PY{p}{]}
+              \PY{c+c1}{\PYZsh{}print(counties)}
+              
+              \PY{c+c1}{\PYZsh{}CREATE RATE GRAPH}
+              \PY{c+c1}{\PYZsh{}data = []}
+              \PY{n}{b1} \PY{o}{=} \PY{n}{go}\PY{o}{.}\PY{n}{Bar}\PY{p}{(}
+                  \PY{c+c1}{\PYZsh{}x = counties,}
+                  \PY{n}{x} \PY{o}{=} \PY{n}{years}\PY{p}{,}
+                  \PY{n}{y} \PY{o}{=} \PY{n}{juvenile\PYZus{}arrests}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{:}\PY{n}{end\PYZus{}year}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+                  \PY{n}{textposition} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{auto}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                  \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number Incidents}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                  \PY{n}{marker}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                      \PY{n}{color}\PY{o}{=}\PY{n}{marker\PYZus{}colors}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
+                      \PY{n}{line}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                          \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rgb(8,48,107)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                          \PY{n}{width}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}\PY{p}{,}
+                  \PY{p}{)}\PY{p}{,}
+                  \PY{n}{opacity}\PY{o}{=}\PY{l+m+mf}{0.6}
+              \PY{p}{)}
+              \PY{n}{l1} \PY{o}{=} \PY{n}{go}\PY{o}{.}\PY{n}{Scatter}\PY{p}{(}
+                      \PY{n}{x} \PY{o}{=} \PY{n}{years}\PY{p}{,}
+                      \PY{n}{y} \PY{o}{=} \PY{n}{arrest\PYZus{}totals}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{begin\PYZus{}year}\PY{p}{:}\PY{n}{end\PYZus{}year}\PY{p}{]}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+                      \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Average}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{)}\PY{p}{,}
+                      \PY{n}{marker}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                      \PY{n}{color}\PY{o}{=}\PY{n}{marker\PYZus{}colors}\PY{p}{[}\PY{n}{cntr}\PY{p}{]}\PY{p}{,}
+                      \PY{n}{line}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                          \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rgb(8,48,107)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                          \PY{n}{width}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}\PY{p}{,}
+                  \PY{p}{)}
+              \PY{p}{)}
+              \PY{c+c1}{\PYZsh{}arrest\PYZus{}totals[[\PYZsq{}Rate\PYZsq{}]].loc[idx[begin\PYZus{}year:end\PYZus{}year],:]}
+              
+              \PY{n}{juvenile\PYZus{}arrests}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pct}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{juvenile\PYZus{}arrests}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{pct\PYZus{}change}\PY{p}{(}\PY{p}{)}
+              
+              \PY{n}{objs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{c+c1}{\PYZsh{}data = []}
+              \PY{k}{for} \PY{n}{year} \PY{o+ow}{in} \PY{n}{years}\PY{p}{:}
+                  \PY{n}{pct\PYZus{}change\PYZus{}vals}\PY{o}{=}\PY{n}{juvenile\PYZus{}arrests}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pct}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{[}\PY{n}{county}\PY{p}{,}\PY{n}{year}\PY{p}{:}\PY{n}{year}\PY{p}{]}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                  \PY{n}{objs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pct\PYZus{}change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{pct\PYZus{}change\PYZus{}vals}\PY{p}{\PYZcb{}}\PY{p}{)}
+          
+              \PY{n}{cntr}\PY{o}{=}\PY{l+m+mi}{0}
+              \PY{c+c1}{\PYZsh{}for year in years:}
+              
+              \PY{n}{b2} \PY{o}{=} \PY{n}{go}\PY{o}{.}\PY{n}{Bar}\PY{p}{(}
+                  \PY{n}{x} \PY{o}{=} \PY{n}{years}\PY{p}{,}
+                  \PY{n}{y} \PY{o}{=} \PY{p}{[}\PY{n}{x}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pct\PYZus{}change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{objs}\PY{p}{]}\PY{p}{,}
+                  \PY{n}{xaxis}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                  \PY{n}{yaxis}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                  \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number Incidents}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                  \PY{n}{marker}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                      \PY{n}{color}\PY{o}{=}\PY{n}{marker\PYZus{}colors}\PY{p}{[}\PY{n}{cntr}\PY{p}{]}\PY{p}{,}
+                      \PY{n}{line}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                          \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rgb(8,48,107)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                          \PY{n}{width}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}\PY{p}{,}
+                  \PY{p}{)}\PY{p}{,}
+                  \PY{n}{opacity}\PY{o}{=}\PY{l+m+mf}{0.6}
+              \PY{p}{)}
+              \PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{n}{b1}\PY{p}{,}\PY{n}{b2}\PY{p}{]}
+              \PY{n}{layout} \PY{o}{=} \PY{n}{go}\PY{o}{.}\PY{n}{Layout}\PY{p}{(}
+                  \PY{n}{autosize}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}
+                  \PY{n}{width}\PY{o}{=}\PY{l+m+mi}{1200}\PY{p}{,}
+                  \PY{n}{height}\PY{o}{=}\PY{l+m+mi}{600}\PY{p}{,}
+                  \PY{n}{xaxis} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}
+                      \PY{n}{domain}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.45}\PY{p}{]}
+                  \PY{p}{)}\PY{p}{,}
+                  \PY{n}{xaxis2}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                      \PY{n}{domain}\PY{o}{=}\PY{p}{[}\PY{l+m+mf}{0.55}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}
+                  \PY{p}{)}\PY{p}{,}
+                  \PY{n}{yaxis2}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                      \PY{n}{anchor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x2}\PY{l+s+s1}{\PYZsq{}}
+                  \PY{p}{)}\PY{p}{,}
+              \PY{p}{)}
+              \PY{n}{pl}\PY{o}{.}\PY{n}{offline}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{go}\PY{o}{.}\PY{n}{Figure}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{data}\PY{p}{,}\PY{n}{layout}\PY{o}{=}\PY{n}{layout}\PY{p}{)}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{5year\PYZus{}county\PYZus{}arrest\PYZus{}rates}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+              \PY{k}{return}
+          
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}arrests\PYZus{}percent\PYZus{}bar}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{:}
+          \PY{c+c1}{\PYZsh{}     display(HTML(\PYZsq{}\PYZlt{}h2\PYZgt{}Percent Change in Arrest Rates For \PYZob{}\PYZcb{} County \PYZob{}\PYZcb{}\PYZhy{}\PYZob{}\PYZcb{}\PYZlt{}/h2\PYZgt{}\PYZsq{}.format(county,begin\PYZus{}year,end\PYZus{}year)))}
+          \PY{c+c1}{\PYZsh{}     data = generate\PYZus{}pct\PYZus{}change\PYZus{}data\PYZus{}obj(juvenile\PYZus{}arrests,county,begin\PYZus{}year,end\PYZus{}year)}
+          \PY{c+c1}{\PYZsh{}     layout = go.Layout(}
+          \PY{c+c1}{\PYZsh{}         autosize=False,}
+          \PY{c+c1}{\PYZsh{}         width=500,}
+          \PY{c+c1}{\PYZsh{}         height=500}
+          \PY{c+c1}{\PYZsh{}     )}
+              
+          \PY{c+c1}{\PYZsh{}     pl.offline.iplot(go.Figure(data=data,layout=layout), filename=\PYZsq{}5year\PYZus{}county\PYZus{}arrest\PYZus{}pct\PYZsq{})}
+              \PY{k}{return}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}183}]:} \PY{c+c1}{\PYZsh{}Plotly Graph to HTML Display functs}
+          
+          
+              
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}school\PYZus{}rate\PYZus{}bar}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{:}
+              \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}h2\PYZgt{}School Discipline Rates For }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ County }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/h2\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+          \PY{l+s+s2}{    \PYZlt{}p\PYZgt{}}
+          \PY{l+s+s2}{    The graph below shows the number of educational discipline events(excluding in\PYZhy{}school suspension) for each county}
+          \PY{l+s+s2}{    for the time period between }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{. Each county is represented along the x\PYZhy{}axis, with 5 vertical bars for each }
+          \PY{l+s+s2}{    county representing the educational discipline rate of that county for a particular year(vertical bars are }
+          \PY{l+s+s2}{    color coded in the legend on the right). This discipline rate is calculated as the number of incidents }
+          \PY{l+s+s2}{    per }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{ residents.The horizontal lines across the graph represent the average discipline rate for the}
+          \PY{l+s+s2}{    entire state for a particular year(also color coded to correspond with year).}
+          \PY{l+s+s2}{    \PYZlt{}/p\PYZgt{}}
+          \PY{l+s+s2}{    }\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{,}\PY{n}{ESTIMATES\PYZus{}PER}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{n}{data} \PY{o}{=} \PY{n}{generate\PYZus{}rate\PYZus{}data\PYZus{}obj}\PY{p}{(}\PY{n}{school\PYZus{}county\PYZus{}rates}\PY{p}{,}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}
+              \PY{n}{layout} \PY{o}{=} \PY{n}{go}\PY{o}{.}\PY{n}{Layout}\PY{p}{(}
+                  \PY{n}{autosize}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}
+                  \PY{n}{width}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,}
+                  \PY{n}{height}\PY{o}{=}\PY{l+m+mi}{500}
+              \PY{p}{)}
+              
+              \PY{n}{pl}\PY{o}{.}\PY{n}{offline}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{go}\PY{o}{.}\PY{n}{Figure}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{data}\PY{p}{,}\PY{n}{layout}\PY{o}{=}\PY{n}{layout}\PY{p}{)}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{5year\PYZus{}county\PYZus{}school\PYZus{}rates}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+              \PY{k}{return}
+          
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}school\PYZus{}percent\PYZus{}bar}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{:}
+              \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}h2\PYZgt{}Percent Change in School Discipline Rates For }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ County }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/h2\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{n}{data} \PY{o}{=} \PY{n}{generate\PYZus{}pct\PYZus{}change\PYZus{}data\PYZus{}obj}\PY{p}{(}\PY{n}{school\PYZus{}county\PYZus{}rates}\PY{p}{,}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}
+              \PY{n}{layout} \PY{o}{=} \PY{n}{go}\PY{o}{.}\PY{n}{Layout}\PY{p}{(}
+                  \PY{n}{autosize}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}
+                  \PY{n}{width}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,}
+                  \PY{n}{height}\PY{o}{=}\PY{l+m+mi}{500}
+              \PY{p}{)}
+              
+              \PY{n}{pl}\PY{o}{.}\PY{n}{offline}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{go}\PY{o}{.}\PY{n}{Figure}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{data}\PY{p}{,}\PY{n}{layout}\PY{o}{=}\PY{n}{layout}\PY{p}{)}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{5year\PYZus{}county\PYZus{}school\PYZus{}pct}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}    
+              \PY{k}{return}
+          
+          \PY{c+c1}{\PYZsh{}cant do because of districts?}
+          \PY{c+c1}{\PYZsh{}don\PYZsq{}t want to represent that?}
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}placement\PYZus{}rate\PYZus{}bar}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{:}
+              \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}h2\PYZgt{}Placement Rates For }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ County }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/h2\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{n}{data} \PY{o}{=} \PY{n}{generate\PYZus{}rate\PYZus{}data\PYZus{}obj}\PY{p}{(}\PY{n}{school\PYZus{}county\PYZus{}rates}\PY{p}{,}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}
+              \PY{n}{pl}\PY{o}{.}\PY{n}{offline}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{5year\PYZus{}county\PYZus{}placement\PYZus{}rates}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+              \PY{k}{return}
+          
+          \PY{k}{def} \PY{n+nf}{display\PYZus{}placement\PYZus{}percent\PYZus{}bar}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{:}
+              \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}h2\PYZgt{}Percent Change in Placement Rates For }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ County }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/h2\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{n}{data} \PY{o}{=} \PY{n}{generate\PYZus{}pct\PYZus{}change\PYZus{}data\PYZus{}obj}\PY{p}{(}\PY{n}{school\PYZus{}county\PYZus{}rates}\PY{p}{,}\PY{n}{county}\PY{p}{,}\PY{n}{begin\PYZus{}year}\PY{p}{,}\PY{n}{end\PYZus{}year}\PY{p}{)}
+              \PY{n}{pl}\PY{o}{.}\PY{n}{offline}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{5year\PYZus{}county\PYZus{}placement\PYZus{}pct}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} 
+              \PY{k}{return}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}184}]:} \PY{c+c1}{\PYZsh{}\PYZsh{}Widget Objects}
+          \PY{n}{COUNTY} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Albany}\PY{l+s+s1}{\PYZsq{}}
+          \PY{n}{county\PYZus{}drop} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{Dropdown}\PY{p}{(}
+              \PY{n}{options}\PY{o}{=}\PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{school}\PY{o}{.}\PY{n}{index}\PY{o}{.}\PY{n}{levels}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+              \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{County:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{n}{disabled}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}
+          \PY{p}{)}
+          \PY{n}{YEAR\PYZus{}TUP} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{2014}\PY{p}{,}\PY{l+m+mi}{2017}\PY{p}{)}
+          \PY{n}{year\PYZus{}slide} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{IntRangeSlider}\PY{p}{(}
+              \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Year range:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{2012}\PY{p}{,}
+              \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{2017}\PY{p}{,}
+              \PY{n}{value}\PY{o}{=}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{,}
+              \PY{n}{step}\PY{o}{=}\PY{l+m+mi}{1}
+          \PY{p}{)}
+          \PY{n}{ESTIMATES\PYZus{}PER} \PY{o}{=} \PY{l+m+mi}{10000}
+          \PY{n}{estimates\PYZus{}slide} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{Select}\PY{p}{(}
+              \PY{n}{options}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{10000}\PY{p}{]}\PY{p}{,}
+              \PY{n}{value}\PY{o}{=}\PY{n}{ESTIMATES\PYZus{}PER}\PY{p}{,}
+              \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Estimate per}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{n}{disabled}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}
+              \PY{n}{continuous\PYZus{}update}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,}
+              \PY{n}{orientation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{horizontal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{n}{readout}\PY{o}{=}\PY{k+kc}{True}
+          \PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}195}]:} \PY{c+c1}{\PYZsh{}tables widgets}
+          \PY{n}{afcars\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{display\PYZus{}afcars\PYZus{}html}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{county\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{display\PYZus{}county\PYZus{}html}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{felony\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{display\PYZus{}felony\PYZus{}html}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{lesser\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{display\PYZus{}lesser\PYZus{}html}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{school\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{display\PYZus{}school\PYZus{}html}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{placements\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{display\PYZus{}placements\PYZus{}html}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{placements\PYZus{}rates\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{display\PYZus{}county\PYZus{}placements\PYZus{}rates\PYZus{}html}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{state\PYZus{}placements\PYZus{}rates\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{display\PYZus{}state\PYZus{}placements\PYZus{}rates\PYZus{}html}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{demographics\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{display\PYZus{}demographic\PYZus{}html}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{case\PYZus{}counts\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{display\PYZus{}case\PYZus{}counts\PYZus{}html}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{agegroup\PYZus{}demographic\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{agegroup\PYZus{}demographic}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{c+c1}{\PYZsh{}estimates widgets}
+          \PY{n}{crime\PYZus{}rate\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{county\PYZus{}crime\PYZus{}rate}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{estimate\PYZus{}per}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{estimates\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          \PY{n}{state\PYZus{}crime\PYZus{}rate\PYZus{}out} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{interactive\PYZus{}output}\PY{p}{(}\PY{n}{state\PYZus{}crime\PYZus{}rate}\PY{p}{,}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{county}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{county\PYZus{}drop}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{year\PYZus{}tup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{year\PYZus{}slide}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{estimate\PYZus{}per}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{n}{estimates\PYZus{}slide}\PY{p}{\PYZcb{}}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{}show everything}
+          \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{} Header stuff}
+          \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}h1\PYZgt{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ County Juvenile Justice 5 Year County Analysis Report for }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/h1\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{COUNTY}\PY{p}{,}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{} Arrests Data}
+          \PY{n}{display}\PY{p}{(}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{VBox}\PY{p}{(}\PY{p}{[}
+                  \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}hr\PYZgt{}\PYZlt{}center\PYZgt{}\PYZlt{}h1\PYZgt{}ORI Arrests Data\PYZlt{}/h1\PYZgt{}\PYZlt{}/center\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,}
+                  \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Wyoming Juvenile Arrests reported from agency ORI numbers. Split between violent felony offenses and non\PYZhy{}violent offenses.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{p}{]}\PY{p}{)}\PY{p}{,}
+                  \PY{n}{widgets}\PY{o}{.}\PY{n}{HBox}\PY{p}{(}\PY{p}{[}
+                  \PY{n}{felony\PYZus{}out}\PY{p}{,}
+                  \PY{n}{lesser\PYZus{}out}
+              \PY{p}{]}\PY{p}{)}\PY{p}{,}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SOURCE: Wyoming DCI UCR arrests by ORI}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}p class=}\PY{l+s+se}{\PYZbs{}\PYZdq{}}\PY{l+s+s2}{page\PYZhy{}break}\PY{l+s+se}{\PYZbs{}\PYZdq{}}\PY{l+s+s2}{\PYZgt{}\PYZlt{}/p\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{p}{)}
+          
+          \PY{n}{display}\PY{p}{(}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}center\PYZgt{}\PYZlt{}h1\PYZgt{}Arrest Rate Comparisons\PYZlt{}/h1\PYZgt{}\PYZlt{}/center\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Depicts county arrest rates calculated from the above ORI Arrests Data. Rate is calculated from }\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s+s2}{        the }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{Estimate per }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{estimates\PYZus{}slide}\PY{o}{.}\PY{n}{value}\PY{p}{)}\PY{o}{+}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ people}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{ field at the top of the form. County arrest rates are calculated }\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s+s2}{        using the sum of all arrests for each year for the selected county portrayed in the ORI Arrests Data above. Then for }\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s+s2}{        comparison, the state arrest rates are calculated from all counties for the selected years. Population data is }\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s+s2}{        then added from the OJJDP source containing only population values for ages 11\PYZhy{}17 within the county.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{HBox}\PY{p}{(}\PY{p}{[}
+              
+                  \PY{n}{widgets}\PY{o}{.}\PY{n}{VBox}\PY{p}{(}\PY{p}{[}
+                      \PY{n}{widgets}\PY{o}{.}\PY{n}{VBox}\PY{p}{(}\PY{p}{[}
+                          \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}h2\PYZgt{}County Arrest Rates\PYZlt{}/h2\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+                          \PY{n}{widgets}\PY{o}{.}\PY{n}{HBox}\PY{p}{(}\PY{p}{[}\PY{n}{crime\PYZus{}rate\PYZus{}out}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                          \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SOURCE: Wyoming DCI UCR arrests by ORI}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                      \PY{p}{]}\PY{p}{)}\PY{p}{,}
+                      \PY{n}{widgets}\PY{o}{.}\PY{n}{VBox}\PY{p}{(}\PY{p}{[}
+                          \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}h2\PYZgt{}Juvenile Court Case Counts\PYZlt{}/h2\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+                          \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{* denotes case counts greater than zero and less than five.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+                          \PY{n}{widgets}\PY{o}{.}\PY{n}{HBox}\PY{p}{(}\PY{p}{[}\PY{n}{case\PYZus{}counts\PYZus{}out}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                          \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SOURCE: OOJDP Easy Access to State and County Juvenile Court Case Counts}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                      \PY{p}{]}\PY{p}{)}
+                  \PY{p}{]}\PY{p}{)}\PY{p}{,}
+                  \PY{n}{widgets}\PY{o}{.}\PY{n}{VBox}\PY{p}{(}\PY{p}{[}
+                      \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}h2\PYZgt{}State Arrest Rates\PYZlt{}/h2\PYZgt{}\PYZlt{}br\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+                      \PY{n}{widgets}\PY{o}{.}\PY{n}{HBox}\PY{p}{(}\PY{p}{[}\PY{n}{state\PYZus{}crime\PYZus{}rate\PYZus{}out}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                      \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SOURCE: Wyoming DCI UCR arrests by ORI}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+                      \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}h2\PYZgt{}Juvenile Population Demographics by Age Group\PYZlt{}/h2\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+                      \PY{n}{widgets}\PY{o}{.}\PY{n}{HBox}\PY{p}{(}\PY{p}{[}\PY{n}{agegroup\PYZus{}demographic\PYZus{}out}\PY{p}{]}\PY{p}{)}
+                  \PY{p}{]}\PY{p}{)}
+              \PY{p}{]}\PY{p}{)}\PY{p}{,}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}p class=}\PY{l+s+se}{\PYZbs{}\PYZdq{}}\PY{l+s+s2}{page\PYZhy{}break}\PY{l+s+se}{\PYZbs{}\PYZdq{}}\PY{l+s+s2}{\PYZgt{}\PYZlt{}/p\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{p}{)}
+          \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}ARRESTS GRAPHS }
+          \PY{n}{display\PYZus{}arrests\PYZus{}rate\PYZus{}bar}\PY{p}{(}\PY{n}{COUNTY}\PY{p}{,}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+          \PY{n}{display\PYZus{}arrests\PYZus{}percent\PYZus{}bar}\PY{p}{(}\PY{n}{COUNTY}\PY{p}{,}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{} Placement Info}
+          \PY{n}{display}\PY{p}{(}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}hr\PYZgt{}\PYZlt{}h1\PYZgt{}DFS Placements\PYZlt{}/h1\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{The left table depicts placement type (of those in care) for probation/delinquency cases only,}\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s+s2}{                 by Judicial District. The yearly numbers depicted are calculated from the 12\PYZhy{}month average of the }\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s+s2}{                 number of juveniles in a placement scenario, as reported at the end of every month. }\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s+s2}{                 Data shown is for the judicial district to which the current selected }\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s+s2}{                 county belongs to. The table on the right shows DFS placements by county as provided by }\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s+s2}{                 the DFS prior to 2017(see note below). Placement rates are calculated using the same method }\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s+s2}{                 as the arrest rates above.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{HBox}\PY{p}{(}\PY{p}{[}    
+                  \PY{n}{widgets}\PY{o}{.}\PY{n}{VBox}\PY{p}{(}\PY{p}{[}
+                      \PY{n}{placements\PYZus{}out}\PY{p}{,}
+                      \PY{c+c1}{\PYZsh{}widgets.HTML(value=\PYZdq{}SOURCE: placements footer\PYZdq{}),}
+                  \PY{p}{]}\PY{p}{)}\PY{p}{,} 
+                  \PY{n}{widgets}\PY{o}{.}\PY{n}{VBox}\PY{p}{(}\PY{p}{[}
+                      \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}h2\PYZgt{}District Placement Rates\PYZlt{}/h2\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+                      \PY{n}{placements\PYZus{}rates\PYZus{}out}\PY{p}{,}
+                      \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}h2\PYZgt{}State Placement Rates\PYZlt{}/h2\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+                      \PY{n}{state\PYZus{}placements\PYZus{}rates\PYZus{}out}\PY{p}{,}
+                      \PY{n}{widgets}\PY{o}{.}\PY{n}{VBox}\PY{p}{(}\PY{p}{[}
+                          \PY{n}{county\PYZus{}out}\PY{p}{,}
+                          \PY{c+c1}{\PYZsh{}widgets.HTML(value=\PYZdq{}SOURCE: by county footer\PYZdq{}),}
+                          \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Prior to 2017 all DFS reports were reported on a per county basis. After 2017, DFS data collection systems no longer classified data per county.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                      \PY{p}{]}\PY{p}{)}
+              \PY{c+c1}{\PYZsh{}         widgets.HBox([crime\PYZus{}rate\PYZus{}out])}
+                  \PY{p}{]}\PY{p}{)}\PY{p}{,}
+              \PY{p}{]}\PY{p}{)}\PY{p}{,}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}p class=}\PY{l+s+se}{\PYZbs{}\PYZdq{}}\PY{l+s+s2}{page\PYZhy{}break}\PY{l+s+se}{\PYZbs{}\PYZdq{}}\PY{l+s+s2}{\PYZgt{}\PYZlt{}/p\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{p}{)}
+          \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{} School info}
+          \PY{n}{display}\PY{p}{(}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{VBox}\PY{p}{(}\PY{p}{[}
+                  \PY{n}{widgets}\PY{o}{.}\PY{n}{HTML}\PY{p}{(}\PY{n}{value}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}hr\PYZgt{}\PYZlt{}h2\PYZgt{}Educational Discipline Data\PYZlt{}/h2\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+              \PY{p}{]}\PY{p}{)}\PY{p}{,}
+              \PY{n}{widgets}\PY{o}{.}\PY{n}{VBox}\PY{p}{(}\PY{p}{[}
+                  \PY{n}{school\PYZus{}out}\PY{p}{,}
+                  \PY{c+c1}{\PYZsh{}widgets.HTML(value=\PYZdq{}SOURCE: edu footnote\PYZdq{})}
+              \PY{p}{]}\PY{p}{)}
+          \PY{p}{)}
+          \PY{n}{display\PYZus{}school\PYZus{}rate\PYZus{}bar}\PY{p}{(}\PY{n}{COUNTY}\PY{p}{,}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+          \PY{n}{display\PYZus{}school\PYZus{}percent\PYZus{}bar}\PY{p}{(}\PY{n}{COUNTY}\PY{p}{,}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{YEAR\PYZus{}TUP}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    
+    \begin{verbatim}
+<IPython.core.display.HTML object>
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+VBox(children=(HTML(value='<hr><center><h1>ORI Arrests Data</h1></center>'), HTML(value='Wyoming Juvenile Arre…
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+HBox(children=(Output(), Output()))
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+HTML(value='SOURCE: Wyoming DCI UCR arrests by ORI')
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+HTML(value='<p class="page-break"></p>')
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+HTML(value='<center><h1>Arrest Rate Comparisons</h1></center>')
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+HTML(value="Depicts county arrest rates calculated from the above ORI Arrests Data. Rate is calculated from   …
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+HBox(children=(VBox(children=(VBox(children=(HTML(value='<h2>County Arrest Rates</h2>'), HBox(children=(Output…
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+HTML(value='<p class="page-break"></p>')
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+<IPython.core.display.HTML object>
+    \end{verbatim}
+
+    
+    
+    
+    
+    \begin{verbatim}
+HTML(value='<hr><h1>DFS Placements</h1>')
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+HTML(value='The left table depicts placement type (of those in care) for probation/delinquency cases only,    …
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+HBox(children=(VBox(children=(Output(),)), VBox(children=(HTML(value='<h2>District Placement Rates</h2>'), Out…
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+HTML(value='<p class="page-break"></p>')
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+VBox(children=(HTML(value='<hr><h2>Educational Discipline Data</h2>'),))
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+VBox(children=(Output(),))
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+<IPython.core.display.HTML object>
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+<IPython.core.display.HTML object>
+    \end{verbatim}
+
+    
+    
+    
+    
+    \begin{verbatim}
+<IPython.core.display.HTML object>
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+
+        IndexError                                Traceback (most recent call last)
+
+        <ipython-input-195-b854a0f87cb1> in <module>()
+        111 )
+        112 display\_school\_rate\_bar(COUNTY,YEAR\_TUP[0],YEAR\_TUP[1])
+    --> 113 display\_school\_percent\_bar(COUNTY,YEAR\_TUP[0],YEAR\_TUP[1])
+    
+
+        <ipython-input-183-a1f0d7d68c9a> in display\_school\_percent\_bar(county, begin\_year, end\_year)
+         27 def display\_school\_percent\_bar(county,begin\_year,end\_year):
+         28     display(HTML('<h2>Percent Change in School Discipline Rates For \{\} County \{\}-\{\}</h2>'.format(county,begin\_year,end\_year)))
+    ---> 29     data = generate\_pct\_change\_data\_obj(school\_county\_rates,county,begin\_year,end\_year)
+         30     layout = go.Layout(
+         31         autosize=False,
+
+
+        <ipython-input-181-aeb30e858897> in generate\_pct\_change\_data\_obj(df, county, begin\_year, end\_year, district)
+         63     data = []
+         64     for year in years:
+    ---> 65         pct\_change\_vals=df[['pct']].loc[idx[county,year:year], :].values.flatten()[0]
+         66         objs.append(\{'year':year,'pct\_change':pct\_change\_vals\})
+         67 
+
+
+        IndexError: index 0 is out of bounds for axis 0 with size 0
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Download Data}
+        \PY{c+c1}{\PYZsh{} dfunct = DataFunctions()}
+        \PY{c+c1}{\PYZsh{} overview = dfunct.getOverview()}
+        \PY{c+c1}{\PYZsh{} dfs = dfunct.getDFS()\PYZsh{}afcars, county, plc}
+        \PY{c+c1}{\PYZsh{} school = dfunct.getSchool()}
+        \PY{c+c1}{\PYZsh{} agegroup\PYZus{}demographic\PYZus{}data = dfunct.getDemographic\PYZus{}By\PYZus{}AgeGroup()}
+        \PY{c+c1}{\PYZsh{} juvenile\PYZus{}arrests = dfunct.getORIData(agegroup\PYZus{}demographic\PYZus{}data)}
+        \PY{c+c1}{\PYZsh{} population\PYZus{}data = dfunct.getPopulationData()\PYZsh{}phasing out?}
+        \PY{c+c1}{\PYZsh{} arrest\PYZus{}totals = dfunct.getStateTotalArrests(juvenile\PYZus{}arrests,population\PYZus{}data)}
+        \PY{c+c1}{\PYZsh{} judicial\PYZus{}district\PYZus{}population\PYZus{}data = dfunct.getJudicialDistrictJuvenilePopulations()}
+        \PY{c+c1}{\PYZsh{} placement\PYZus{}data = dfunct.getJudicialPlacementData()}
+        \PY{c+c1}{\PYZsh{} placement\PYZus{}rates\PYZus{}data,state\PYZus{}placement\PYZus{}rates\PYZus{}data = dfunct.getJudicialPlacementRates(placement\PYZus{}data,judicial\PYZus{}district\PYZus{}population\PYZus{}data)}
+        \PY{c+c1}{\PYZsh{} demographic\PYZus{}data = dfunct.getDemographicData()}
+        \PY{c+c1}{\PYZsh{} court\PYZus{}case\PYZus{}counts = dfunct.getCourtCaseNumbersData()}
+        \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{Javascript}
+        
+        \PY{k}{def} \PY{n+nf}{downloadCSV\PYZus{}python}\PY{p}{(}\PY{n}{name}\PY{p}{)}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pycsv:}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{name}\PY{p}{)}\PY{p}{)}
+            \PY{n}{csv\PYZus{}string} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}
+            \PY{k}{if} \PY{n}{name} \PY{o+ow}{is} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Education}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+                \PY{n}{csv\PYZus{}string} \PY{o}{=} \PY{n}{school}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{n}{index}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{k}{elif} \PY{n}{name} \PY{o+ow}{is} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Demographic}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+                \PY{n}{csv\PYZus{}string} \PY{o}{=} \PY{n}{agegroup\PYZus{}demographic\PYZus{}data}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{n}{index}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{k}{elif} \PY{n}{name} \PY{o+ow}{is} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{JuvyArrest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+                \PY{n}{csv\PYZus{}string} \PY{o}{=} \PY{n}{arrest\PYZus{}totals}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{n}{index}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{k}{elif} \PY{n}{name} \PY{o+ow}{is} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{JuvyCourtCase}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+                \PY{n}{csv\PYZus{}string} \PY{o}{=} \PY{n}{court\PYZus{}case\PYZus{}counts}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{n}{index}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                
+            \PY{n}{js\PYZus{}download} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{l+s+s2}{    var csv = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{;}
+        
+        \PY{l+s+s2}{    var filename = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{results.csv}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{;}
+        \PY{l+s+s2}{    var blob = new Blob([csv], }\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{ type: }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{text/csv;charset=utf\PYZhy{}8;}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{ \PYZcb{});}
+        \PY{l+s+s2}{    if (navigator.msSaveBlob) }\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{ // IE 10+}
+        \PY{l+s+s2}{        navigator.msSaveBlob(blob, filename);}
+        \PY{l+s+s2}{    \PYZcb{} else }\PY{l+s+s2}{\PYZob{}}
+        \PY{l+s+s2}{        var link = document.createElement(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{a}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{);}
+        \PY{l+s+s2}{        if (link.download !== undefined) }\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{ // feature detection}
+        \PY{l+s+s2}{            // Browsers that support HTML5 download attribute}
+        \PY{l+s+s2}{            var url = URL.createObjectURL(blob);}
+        \PY{l+s+s2}{            link.setAttribute(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{href}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{, url);}
+        \PY{l+s+s2}{            link.setAttribute(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{download}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{, filename);}
+        \PY{l+s+s2}{            link.style.visibility = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{hidden}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{;}
+        \PY{l+s+s2}{            link.innerHTML = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{link}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{;}
+        \PY{l+s+s2}{            document.body.appendChild(link);}
+        \PY{l+s+s2}{            link.click();}
+        \PY{l+s+s2}{            document.body.removeChild(link);}
+        \PY{l+s+s2}{        \PYZcb{}}
+        \PY{l+s+s2}{    \PYZcb{}}
+        \PY{l+s+s2}{    }\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{csv\PYZus{}string}
+        
+            \PY{n}{Javascript}\PY{p}{(}\PY{n}{js\PYZus{}download}\PY{p}{)}
+            
+        \PY{n}{js\PYZus{}download\PYZus{}funct} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{l+s+s2}{\PYZlt{}script\PYZgt{}}
+        \PY{l+s+s2}{function downloadCSV\PYZus{}js(name)}\PY{l+s+s2}{\PYZob{}}
+        \PY{l+s+s2}{    console.log(}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{clicked}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{)}
+        \PY{l+s+s2}{    var kernel = IPython.notebook.kernel;}
+        \PY{l+s+s2}{    kernel.execute(downloadCSV\PYZus{}python(name));}
+        \PY{l+s+s2}{\PYZcb{}}
+        \PY{l+s+s2}{\PYZlt{}/script\PYZgt{}}
+        \PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{c+c1}{\PYZsh{} display(HTML(js\PYZus{}download\PYZus{}funct))}
+        \PY{c+c1}{\PYZsh{} display(HTML(\PYZsq{}\PYZlt{}h3\PYZgt{}Download the Data\PYZlt{}/h3\PYZgt{} Click on the links below to download the CSV files being used in the above report.\PYZsq{}))}
+        \PY{c+c1}{\PYZsh{} display(HTML(\PYZsq{}\PYZlt{}a onclick=\PYZdq{}downloadCSV\PYZus{}js(\PYZbs{}\PYZsq{}Education\PYZbs{}\PYZsq{})\PYZdq{}\PYZgt{}Download Educational Discipline Data\PYZlt{}/a\PYZgt{}\PYZsq{}))}
+        \PY{c+c1}{\PYZsh{} display(HTML(\PYZsq{}\PYZlt{}a onclick=\PYZdq{}downloadCSV\PYZus{}js(\PYZbs{}\PYZsq{}Demographic\PYZbs{}\PYZsq{})\PYZdq{}\PYZgt{}Download Population and Demographic Information by Age Group Data\PYZlt{}/a\PYZgt{}\PYZsq{}))}
+        \PY{c+c1}{\PYZsh{} display(HTML(\PYZsq{}\PYZlt{}a onclick=\PYZdq{}downloadCSV\PYZus{}js(\PYZbs{}\PYZsq{}JuvyArrest\PYZbs{}\PYZsq{})\PYZdq{}\PYZgt{}Download Juvenile Arrest Data Data\PYZlt{}/a\PYZgt{}\PYZsq{}))}
+        \PY{c+c1}{\PYZsh{} display(HTML(\PYZsq{}\PYZlt{}a onclick=\PYZdq{}downloadCSV\PYZus{}js(\PYZbs{}\PYZsq{}JuvyCourtCase\PYZbs{}\PYZsq{})\PYZdq{}\PYZgt{}Download Juvenile Court Case Counts Data\PYZlt{}/a\PYZgt{}\PYZsq{}))}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}p\PYZgt{}Please visit \PYZlt{}a href=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{https://github.com/coolcomputers/WyJJD/new\PYZhy{}data/DataGuide.md}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{ target=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZus{}blank}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZgt{}the Data Guide page\PYZlt{}/a\PYZgt{} for data source citations.\PYZlt{}/p\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+        \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}p\PYZgt{}Project created by Cool Computers for the Wyoming Children}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{s Law Center, funded partially by grants provided by the \PYZlt{}a href=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{https://www.aecf.org/where\PYZhy{}we\PYZhy{}work/location/wy/}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{ target=}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZus{}blank}\PY{l+s+s1}{\PYZdq{}}\PY{l+s+s1}{\PYZgt{}Annie E. Casey Foundation\PYZlt{}/a\PYZgt{}\PYZlt{}/p\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{}arrest\PYZus{}totals[[\PYZsq{}Total Incidents\PYZsq{},\PYZsq{}Population 11\PYZhy{}17\PYZsq{},\PYZsq{}Rate\PYZsq{}]]}
+\end{Verbatim}
+
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

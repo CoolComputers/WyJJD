@@ -13,3 +13,6 @@ pip install pyshp
 
 #beakerx for interactive tables
 pip install beakerx
+
+#plotly for state report chloropleths
+pip install plotly
