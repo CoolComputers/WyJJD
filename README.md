@@ -1,10 +1,10 @@
 # WyJJD
 Wyoming Juvenile Justice Data  
-A compilation of data reporting solutions to better inform the juvenile justice decision making processes within the State of Wyoming. Using data compiled from various state and federal agencies, this project aims to use these various sources of data 
+A compilation of data reporting solutions to better inform the juvenile justice decision making processes within the State of Wyoming. Using data compiled from various state and federal agencies, this project aims to use these various sources of data
 
-This project contains two main folders, new-data/ which contains all data compiled from various sources for use in the reports found in the code-reports/ folder. 
+This project contains two main folders, new-data/ which contains all data compiled from various sources for use in the reports found in the code-reports/ folder.
 
-[Click-here](https://github.com/coolcomputers/WyJJD/new-data/DataGuide.md) to view a description of all available sources of data.
+[Click-here](https://github.com/coolcomputers/WyJJD/blob/master/new-data/DataGuide.md) to view a description of all available sources of data. All credit for the data used for this report goes to the companies and organizations listed in the data description.
 
 # View Reports
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CoolComputers/WyJJD/master?filepath=code-report%2FDisplay_CountySnapshot.ipynb) - County Snapshot Interactive Report  
@@ -38,27 +38,12 @@ To install the libraries required for this project run the following command fro
 
 ---
 ## Running Online
-There are several free services that allow for the execution of Jupyter Notebooks(such as those used in this project) inside of a virtual, online environment. This method requires no software installation on the users computer, however there are often time limits imposed on execution and it is often hard to save changes made during the sessions. 
+There are several free services that allow for the execution of Jupyter Notebooks(such as those used in this project) inside of a virtual, online environment. This method requires no software installation on the users computer, however there are often time limits imposed on execution and it is often hard to save changes made during the sessions.
 
 The solution recommended for this project is using mybinder.org. Steps to run this project within mybinder are listed below.
 
-1. Navigate to the [folder containing project notebooks](https://github.com/CoolComputers/WyJJD/tree/master/new-data) 
-2. Select the URL of the notebook you would like to run 
+1. Navigate to the [folder containing project notebooks](https://github.com/CoolComputers/WyJJD/tree/master/new-data)
+2. Select the URL of the notebook you would like to run
 3. Paste that URL into the 'GitHub repository name or URL' field of the main form on [mybinder.org](mybinder.org).
 4. Click 'Launch'
 5. After a quick loading period you should see the Notebook open up in your web browser and allow you to explore and manipulate the code and data for some amount of time. The changes you make are not saved to the projects public repository so you do not need to worry about breaking anything in the project.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
