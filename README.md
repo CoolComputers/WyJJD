@@ -1,6 +1,10 @@
 # WyJJD
-Wyoming Juvenile Justice Data  
-A compilation of data reporting solutions to better inform the juvenile justice decision making processes within the State of Wyoming. Using data compiled from various state and federal agencies, this project aims to use these various sources of data
+Wyoming Juvenile Justice Data Report  
+
+By using data compiled from various state and federal agencies this project aims to provide valuable insights into the
+Juvenile Justice system of the State of Wyoming. This interactive web-based report has been developed to help provide
+those who are involved in the Juvenile Justice system with easy to read depictions of standard data points so that they
+may make even more informed decisions to assist our youth.
 
 This project contains two main folders, new-data/ which contains all data compiled from various sources for use in the reports found in the code-reports/ folder.
 
@@ -17,7 +21,7 @@ In order to run this project on your local system you may need to install some s
 
 One goal of this project was to use free and readily available software and services in order to avoid any financial barriers. However, editing the current programs will require a knowledge of the Python programming language.  
 
-The currect software suite consists of the following tools:  
+The current software suite consists of the following tools:  
 - Python3
 - Pandas
 - Jupyter Notebook
@@ -33,8 +37,6 @@ To install the libraries required for this project run the following command fro
 ### MacOS Installation
 * [How to Use Python on Mac(macworld.com)](https://www.macworld.co.uk/how-to/mac/python-coding-mac-3635912/)
 * [Install Jupyter Notebook](http://jupyter.org/install)
-
-
 
 ---
 ## Running Online
