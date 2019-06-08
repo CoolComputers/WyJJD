@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WyJJD</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Wyoming Juvenile Justice Data</h1>
+    <h2>Juvenile Justice County Snapshots</h2>
+    Use the county dropdown to select which county to observe, and then select a beginning and ending year to observe data between that range.<hr>
+    <label for="select_county">Select County:</label>
+    <select class="form-control" id="select_county">
+      {% for county in counties %}
+                <option>{{ county }}</option>
+      {% endfor %}
+    </select>
+    <label for="select_year_begin">Select Beginning Year:</label>
+    <select class="form-control" id="select_year_begin">
+      <option>1</option>
+    </select>
+    <label for="select_year_end">Select End Year:</label>
+    <select class="form-control" id="select_year_end">
+      <option>1</option>
+    </select>
+    <button type="button" class="btn btn-secondary">Submit</button>
+
+    <div class="container-fluid">
+      <div id="ori_arrests_info" class="row justify-content-center">
+        <h2>ORI Arrests Data</h2>
+        <p class="lead">Depicts county arrest rates calculated from the above ORI Arrests Data. Rate is calculated from the 'Estimate per {} people' field at the top of the form. County arrest rates are calculated using the sum of all arrests for each year, for the selected county portrayed in the ORI Arrests Data above. Then for comparison, the state arrest rates are calculated from all counties for the selected years. Population data is then added from the OJJDP source containing only population values for ages 11-17 within the county. (DataSources[1,3,5])</p>
+      </div><!--/ori_arrests_info row-->
+      <div id="ori_arrests_data" class="row justify-content-center">
+        <div class="col-lg-6 col-md-6">
+          County Arrest Rates
+          {{ori_county_arrest_df | safe}}
+        </div>
+        <div class="col-lg-6 col-md-6">
+          Juvenile Court Case Counts <p>* denotes case counts greater than zero and less than five.</p>
+        </div>
+      </div><!--/ori_arrests_data row-->
+      <!-------------------------------------------------------------------------->
+      <div id="arrest_rates_info" class="row justify-content-center">
+        <h2>Arrest Rate Comparisons</h2>
+        <p class="lead">Depicts county arrest rates calculated from the above ORI Arrests Data. Rate is calculated from
+            the 'Estimate per {} people' field at the top of the form. County arrest rates are calculated
+            using the sum of all arrests for each year, for the selected county portrayed in the ORI Arrests Data above. Then for
+            comparison, the state arrest rates are calculated from all counties for the selected years. Population data is
+            then added from the OJJDP source containing only population values for ages 11-17 within the county. (DataSources[1,3,5])</p>
+      </div><!--/arrest_rates_info row-->
+      <div id="arrest_rates_data" class="row justify-content-center">
+        <div class="col-lg-6 col-md-6">
+          County Arrest Rates
+        </div>
+        <div class="col-lg-6 col-md-6">
+          Juvenile Court Case Counts * denotes case counts greater than zero and less than five.
+        </div>
+        <div class="col-lg-6 col-md-6">
+          State Arrest Rates
+        </div>
+        <div class="col-lg-6 col-md-6">
+          Juvenile Population Demographics by Age Group
+        </div>
+      </div><!--/arrest_rates_data row-->
+      <!-------------------------------------------------------------------------->
+      <div id="dfs_placements_info" class="row justify-content-center">
+        <h2>DFS Placements</h2>
+        <p class="lead">The left table depicts placement type (of those in care) for probation/delinquency cases only,\
+                       by Judicial District. The yearly numbers depicted are calculated from the 12-month average of the \
+                       number of juveniles in a placement scenario, as reported at the end of every month. \
+                       Data shown is for the judicial district to which the current selected \
+                       county belongs to. The table on the right shows DFS placements by county as provided by \
+                       the DFS prior to 2017(see note below). Placement rates are calculated using the same method \
+                       as the arrest rates above.(DataSources[1,4])</p>
+      </div><!--/arrest_rates_info row-->
+      <div id="dfs_placements_data" class="row justify-content-center">
+        <div class="col-lg-6 col-md-6">
+          District Placement Rates
+        </div>
+        <div class="col-lg-6 col-md-6">
+          State Placement Rates
+        </div>
+        Prior to 2017 all DFS reports were reported on a per county basis. After 2017, DFS data collection systems no longer classified data per county.
+      </div><!--/arrest_rates_data row-->
+      <!-------------------------------------------------------------------------->
+      <div id="edu_discipline_info" class="row justify-content-center">
+        <h2>Educational Discipline Data</h2>
+        <p class="lead">The table below depicts Educational discipline data as reported by the Wyoming
+                  Department of Education. The left table represents the raw data portrayed
+                  by school district within the selected county. The right table portrays the
+                  educational discipline rates of the selected county. The rates do not include in school suspensions,
+                  and are calculated in a similar fashion to the above two tables,
+                  using the sum of the total incidents for each school district contained within a county as
+                  the total value per year. (DataSources[1,2])</p>
+      </div><!--/arrest_rates_info row-->
+      <div id="edu_discipline_data" class="row justify-content-center">
+        <div class="col-lg-6 col-md-6">
+
+        </div>
+      </div><!--/arrest_rates_data row-->
+      <!-------------------------------------------------------------------------->
+      <div class="">
+        <h3>Download the Data</h3>
+        Click on the links below to download the CSV files being used in the above report.
+        <!--
+        display(HTML('<a onclick="downloadCSV_js(\'Education\')">Download Educational Discipline Data</a>'))
+        display(HTML('<a onclick="downloadCSV_js(\'Demographic\')">Download Population and Demographic Information by Age Group Data</a>'))
+        display(HTML('<a onclick="downloadCSV_js(\'JuvyArrest\')">Download Juvenile Arrest Data Data</a>'))
+        display(HTML('<a onclick="downloadCSV_js(\'JuvyCourtCase\')">Download Juvenile Court Case Counts Data</a>'))
+        -->
+        <h3>Data Citations</h3>
+        To view references and sources of data, please visit <a href="https://github.com/coolcomputers/WyJJD/new-data/DataGuide.md">this page</a>
+
+        <p>Please visit <a href="https://github.com/coolcomputers/WyJJD/new-data/DataGuide.md" target="_blank">the Data Guide page</a> for data source citations.</p>
+        <p>Project created by Cool Computers for the Wyoming Children's Law Center, funded partially by grants provided by the <a href="https://www.aecf.org/where-we-work/location/wy/" target="_blank">Annie E. Casey Foundation</a></p>
+      </div>
+    </div><!--container-->
+  </body>
+</html>
