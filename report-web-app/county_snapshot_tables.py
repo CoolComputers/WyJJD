@@ -92,13 +92,94 @@ def display_lesser_html(county,year_tup):
     except Exception as e:
         return 'Error showing ORI data.'+str(e)
 
+def display_school_html(county,year_tup):
+    try:
+        return school.loc[idx[county,year_tup[0]:year_tup[1],year_tup[0]:year_tup[1]], :].transpose().to_html()
+    except Exception as e:
+        return 'Error showing School data.'+str(e)
 
+def display_school_rate_html(county,year_tup):
+    try:
+        return school_county_rates[['Total','Population 11-17','Rate']].loc[idx[county,year_tup[0]:year_tup[1]], :].transpose().to_html()
+    except Exception as e:
+        return 'Error showing School data.'+str(e)
 
+def display_overview_html(county,year_tup):#NOT USED?
+    try:
+        return verview.loc[idx[county,year_tup[0]:year_tup[1]], :].to_html()
+    except Exception as e:
+        return 'Error showing Overview data.'+str(e)
 
+##PLACEMENTS
+def display_placements_html(county,year_tup):
+    placement_fields_to_show=['Psychiatric RTC',
+    'Long Term FC Non Relative',
+    'Interim','Boys School','State Hospital','Girls School',
+    'Hospital',
+    'Therapeutic FC Non Relative','Jail',
+    'Pre-adoptive home','Crisis Center','Detention','Trial Home Visit',
+    'Runaway','Non-relative foster home','Residential Treatment',
+    'Group Home','Specialized FC Non Relative','Total Group Care','Total Family-like setting','Unknown','Total Children in Care']
+    try:
+        district_num = 0
+        for county_arr_idx in range(len(placement_county_districts)):#search through county list to match county name with judicial district number
+            if county in placement_county_districts[county_arr_idx]:
+                district_num = county_arr_idx
 
+        return placement_data[placement_fields_to_show].loc[idx[year_tup[0]:year_tup[1],district_num+1], :].transpose().to_html()
+    except Exception as e:
+        return 'Error showing Placements data.'+str(e)
 
+def display_county_placements_rates_html(county,year_tup):
+    try:
+        district_num = 0
+        for county_arr_idx in range(1,len(placement_county_districts)):#search through county list to match county name with judicial district number
+            if county in placement_county_districts[county_arr_idx]:
+                district_num = county_arr_idx
+                #return 'found county[{}:{}] in arr:{}'.format(county,district_num,str(placement_county_districts[district_num])))
+        #return overview.loc[idx[county,year_tup[0]:year_tup[1]], :].to_html()))
+        return placement_rates_data.loc[idx[district_num+1,year_tup[0]:year_tup[1]], :].transpose().to_html()
+    except Exception as e:
+        return 'Error showing county placement rates data.'+str(e)
 
+def display_state_placements_rates_html(county,year_tup):
+    try:
+        return state_placement_rates_data.loc[idx[year_tup[0]:year_tup[1]], :].transpose().to_html()
+    except Exception as e:
+        return 'Error showing state placement rate data.'+str(e)
 
+##CASE COUNTS
+def display_case_counts_html(county,year_tup):
+    try:
+        return court_case_counts.loc[idx[str(year_tup[0]):str(year_tup[1]),county], :].transpose().to_html()
+    except Exception as e:
+        return 'Error showing Case Counts data.'+str(e)
+
+def display_demographic_html(county,year_tup):
+    try:
+        return demographic_data.loc[idx[county,:,year_tup[0]:year_tup[1]],:].transpose().to_html()
+    except Exception as e:
+        return 'Error showing demographic data.'+str(e)
+
+# crime stats functions
+#calculate crime rate per county
+def county_crime_rate(county,year_tup):
+    try:
+        return juvenile_arrests[['Total Incidents','Population 11-17','Rate']].loc[idx[county,year_tup[0]:year_tup[1]], :].transpose().to_html()
+    except Exception as e:
+        return 'Error showing county crime rate data.'+str(e)
+
+def state_crime_rate(county,year_tup):
+    try:
+        return arrest_totals[['Total Incidents','Population 11-17','Rate']].loc[idx[year_tup[0]:year_tup[1]],:].transpose().to_html()
+    except Exception as e:
+        return 'Error showing state crime rate data.'+str(e)
+
+def agegroup_demographic(county,year_tup):
+    try:
+        return agegroup_demographic_data[agegroup_demographic_data['Age Range']=='11-17'].loc[idx[county,year_tup[0]:year_tup[1]],:].transpose().to_html()
+    except Exception as e:
+        return 'Error showing agegroup demographic data.'+str(e)
 
 
 #
