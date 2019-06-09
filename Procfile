@@ -1,1 +1,1 @@
-web: gunicorn app:wyo-juvenile-justice-data
+web: gunicorn app:app
