@@ -7,39 +7,48 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Wyoming Juvenile Justice Data</h1>
-    <h2>Juvenile Justice County Snapshots</h2>
-    Use the county dropdown to select which county to observe, and then select a beginning and ending year to observe data between that range.<hr>
-    <form action = "/county_snapshot" method = "POST">
-      <label for="select_county">Select County:</label>
-      <select class="form-control" id="select_county" name="select_county">
-        {% for county in option_counties %}
-                  <option>{{ county }}</option>
-        {% endfor %}
-      </select>
-      <label for="select_year_begin">Select Beginning Year:</label>
-      <select class="form-control" id="select_year_begin" name="select_year_begin">
-        {% for year in range(option_begin_year,option_end_year) %}
-          {% if year==selected_begin_year: %}
-            <option selected>{{ year }}</option>
-          {% else: %}
-            <option>{{ year }}</option>
-          {% endif %}
-        {% endfor %}
-      </select>
-      <label for="select_year_end">Select End Year:</label>
-      <select class="form-control" id="select_year_end" name="select_year_end">
-        {% for year in range(option_begin_year,option_end_year) %}
-          {% if year==selected_end_year: %}
-            <option selected>{{ year }}</option>
-          {% else: %}
-            <option>{{ year }}</option>
-          {% endif %}
-        {% endfor %}
-      </select>
+    <center>
+      <h1>Wyoming Juvenile Justice Data</h1>
+      <h2>Juvenile Justice County Snapshots</h2>
+      <hr>
+      Use the county dropdown to select which county to observe, and then select a beginning and ending year to observe data between that range.
+    </center>
+    <form class="form-inline justify-content-center" action="/county_snapshot" method="POST">
+      <div class="form-group pr-3">
+        <label for="select_county">Select County:</label>
+        <select class="form-control" id="select_county" name="select_county">
+          {% for county in option_counties %}
+                    <option>{{ county }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group pr-3">
+        <label for="select_year_begin">Select Beginning Year:</label>
+        <select class="form-control" id="select_year_begin" name="select_year_begin">
+          {% for year in range(option_begin_year,option_end_year) %}
+            {% if year==selected_begin_year: %}
+              <option selected>{{ year }}</option>
+            {% else: %}
+              <option>{{ year }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group pr-3">
+        <label for="select_year_end">Select End Year:</label>
+        <select class="form-control" id="select_year_end" name="select_year_end">
+          {% for year in range(option_begin_year,option_end_year) %}
+            {% if year==selected_end_year: %}
+              <option selected>{{ year }}</option>
+            {% else: %}
+              <option>{{ year }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
       <input class="btn btn-secondary" type="submit" value="Submit &raquo;">
     </form>
-
+    <hr>
     <div class="container-fluid">
       <div id="ori_arrests_info" class="row justify-content-center">
         <h2>ORI Arrests Data</h2>
@@ -47,12 +56,13 @@
       </div><!--/ori_arrests_info row-->
       <div id="ori_arrests_data" class="row justify-content-center">
         <div class="col-lg-6 col-md-6">
-          County Arrest Rates
+          <h3>County Arrest Rates</h3>
           {{ ori_county_arrest_df | safe }}
         </div>
         <div class="col-lg-6 col-md-6">
-          Juvenile Court Case Counts <p>* denotes case counts greater than zero and less than five.</p>
+          <h3>Juvenile Court Case Counts</h3>
           {{ case_counts_df | safe }}
+          <p>* denotes case counts greater than zero and less than five.</p>
         </div>
       </div><!--/ori_arrests_data row-->
       <!-------------------------------------------------------------------------->
@@ -62,19 +72,20 @@
       </div><!--/arrest_rates_info row-->
       <div id="arrest_rates_data" class="row justify-content-center">
         <div class="col-lg-6 col-md-6">
-          County Arrest Rates
+          <h3>County Arrest Rates</h3>
           {{ crime_rate_df | safe }}
         </div>
         <div class="col-lg-6 col-md-6">
-          Juvenile Court Case Counts * denotes case counts greater than zero and less than five.
+          <h3>Juvenile Court Case Counts</h3>
           {{ case_counts_df | safe }}
+          * denotes case counts greater than zero and less than five.
         </div>
         <div class="col-lg-6 col-md-6">
-          State Arrest Rates
+          <h3>State Arrest Rates</h3>
           {{ state_crime_rate_df | safe }}
         </div>
         <div class="col-lg-6 col-md-6">
-          Juvenile Population Demographics by Age Group
+          <h3>Juvenile Population Demographics by Age Group</h3>
           {{ age_group_demographic_df | safe }}
         </div>
       </div><!--/arrest_rates_data row-->
@@ -88,10 +99,10 @@
           {{ placements_df | safe }}
         </div>
         <div class="col-lg-6 col-md-6">
-          District Placement Rates
+          <h3>District Placement Rates</h3>
           {{ county_placement_rates_df | safe }}
 
-          State Placement Rates
+          <h3>State Placement Rates</h3>
           {{ state_placement_rates_df | safe }}
         </div>
         Prior to 2017 all DFS reports were reported on a per county basis. After 2017, DFS data collection systems no longer classified data per county.
@@ -126,4 +137,8 @@
       </div>
     </div><!--container-->
   </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="{{url_for('static', filename='js/county_snapshot_report.js')}}"></script>
 </html>

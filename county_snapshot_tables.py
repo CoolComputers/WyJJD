@@ -90,7 +90,7 @@ def display_lesser_html(county,year_tup):
         tmp_lesser['Totals'] = tmp_lesser.sum(axis=1)
         return tmp_lesser.transpose().to_html()
     except Exception as e:
-        return 'Error showing ORI data.'+str(e)
+        return 'Error showing ORI lesser offenses data.'+str(e)
 
 def display_school_html(county,year_tup):
     try:

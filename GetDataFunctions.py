@@ -23,7 +23,7 @@ END_YEAR = ORI_End_Year
 population_base_for_rates = 10000
 
 ##Files
-data_folder = '../new-data/'
+data_folder = 'new-data/'
 census_folder = data_folder+'census-info/'
 population_data_file = census_folder+'census-factfinder/census-cleaned.csv'
 population_agegroup_data_file = data_folder+'ojjdp/population-data/population_agegroup_ethnicity.csv'
