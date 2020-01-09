@@ -1,5 +1,7 @@
-# WyJJD
-Wyoming Juvenile Justice Data Report  
+# WyJJD Jupyter
+Wyoming Juvenile Justice Data Report: Jupyter Development
+
+**Attention:** This branch (jupyter) focuses on developing data views and cleaning data sources using Jupyter Notebooks.
 
 By using data compiled from various state and federal agencies this project aims to provide valuable insights into the
 Juvenile Justice system of the State of Wyoming. This interactive web-based report has been developed to help provide
