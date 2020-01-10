@@ -1,6 +1,0 @@
-list of broken files that need fixing
-2012 arson arrest by age
-2012-clearances-of-index-offenses-by-offense-classification
-fix all leoka-injury files
-
-need to clean 2013-nature-of-larcenies-by-month and down(descending name)
