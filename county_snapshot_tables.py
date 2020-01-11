@@ -16,16 +16,16 @@ import subprocess
 import base64 #for createdownloadlink
 
 dfunct = DataFunctions()
-overview = dfunct.getOverview()#not used
-dfs = dfunct.getDFS()#afcars, county, plc
+#overview = dfunct.getOverview()#not used
+#dfs = dfunct.getDFS()#afcars, county, plc
 
 agegroup_demographic_data = dfunct.getDemographic_By_AgeGroup()
-population_data = dfunct.getPopulationData()#phasing out?
+# population_data = dfunct.getPopulationData()#phasing out?
 #arrest_totals = dfunct.getStateTotalArrests(juvenile_arrests,population_data)
 
 school = dfunct.getSchool()
 school_county_rates = dfunct.getSchool_county_rates(school,agegroup_demographic_data)
-school_state_rates = dfunct.getSchool_state_rates(school,agegroup_demographic_data)
+# school_state_rates = dfunct.getSchool_state_rates(school,agegroup_demographic_data)
 
 juvenile_arrests = dfunct.getORIData(agegroup_demographic_data)
 arrest_totals = dfunct.getStateTotalArrests(juvenile_arrests,agegroup_demographic_data)
@@ -34,7 +34,7 @@ judicial_district_population_data = dfunct.getJudicialDistrictJuvenilePopulation
 placement_data = dfunct.getJudicialPlacementData()
 placement_rates_data,state_placement_rates_data = dfunct.getJudicialPlacementRates(placement_data,judicial_district_population_data)
 
-demographic_data = dfunct.getDemographicData()
+# demographic_data = dfunct.getDemographicData()
 court_case_counts = dfunct.getCourtCaseNumbersData()
 
 data_sources_for_citation = [

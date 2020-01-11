@@ -5,6 +5,7 @@
     <title>WyJJD</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='print.css') }}">
   </head>
   <body>
     <center>
@@ -121,19 +122,11 @@
       </div><!--/arrest_rates_data row-->
       <!-------------------------------------------------------------------------->
       <div class="">
-        <h3>Download the Data</h3>
-        Click on the links below to download the CSV files being used in the above report.
-        <!--
-        display(HTML('<a onclick="downloadCSV_js(\'Education\')">Download Educational Discipline Data</a>'))
-        display(HTML('<a onclick="downloadCSV_js(\'Demographic\')">Download Population and Demographic Information by Age Group Data</a>'))
-        display(HTML('<a onclick="downloadCSV_js(\'JuvyArrest\')">Download Juvenile Arrest Data Data</a>'))
-        display(HTML('<a onclick="downloadCSV_js(\'JuvyCourtCase\')">Download Juvenile Court Case Counts Data</a>'))
-        -->
         <h3>Data Citations</h3>
-        To view references and sources of data, please visit <a href="https://github.com/coolcomputers/WyJJD/new-data/DataGuide.md">this page</a>
+        To view the raw data used in this report, please visit <a href="https://github.com/CoolComputers/WyJJD/blob/jupyter/new-data/DataGuide.md">this page</a>
 
-        <p>Please visit <a href="https://github.com/coolcomputers/WyJJD/new-data/DataGuide.md" target="_blank">the Data Guide page</a> for data source citations.</p>
-        <p>Project created by Cool Computers for the Wyoming Children's Law Center, funded partially by grants provided by the <a href="https://www.aecf.org/where-we-work/location/wy/" target="_blank">Annie E. Casey Foundation</a></p>
+        <p>Please visit <a href="https://github.com/CoolComputers/WyJJD/blob/jupyter/new-data/DataGuide.md" target="_blank">the Data Guide page</a> for data source citations.</p>
+        <p>Project created by <a href="https://www.coolcomputers.xyz">Cool Computers</a> for the Wyoming Children's Law Center, funded partially by grants provided by the <a href="https://www.aecf.org/where-we-work/location/wy/" target="_blank">Annie E. Casey Foundation</a></p>
       </div>
     </div><!--container-->
   </body>

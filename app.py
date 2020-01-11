@@ -7,6 +7,11 @@ app = flask.Flask(__name__)
 # from flask import Flask
 # app = Flask(__name__)
 
+#return basic home/menu 
+@app.route("/")
+def show_home_page():
+    return flask.render_template("home.html")
+
 #show county snapshot report
 @app.route("/county_snapshot", methods=['GET', 'POST'])
 def show_county_snapshot():
