@@ -28,6 +28,7 @@ The current software suite consists of the following tools:
 - Pandas
 - Jupyter Notebook
 - Various graphing libraries (see requirements.txt)
+- Selenium Browser Automation
 
 To install the libraries required for this project run the following command from your [python terminal(opentechschool.github.io)](https://opentechschool.github.io/python-beginners/en/getting_started.html#what-is-python-exactly): `pip install -r requirements.txt`
 
