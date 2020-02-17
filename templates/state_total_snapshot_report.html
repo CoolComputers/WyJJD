@@ -61,7 +61,7 @@
       </div><!--/ori_arrests_info row-->
       <div id="ori_arrests_data" class="row justify-content-center">
         <div class="col-lg-6 col-md-6">
-          <h3>County Major Offense Arrest Rates</h3>
+          <h3>State Major Offense Arrest Rates</h3>
           {{ ori_county_arrest_df | safe }}
         </div>
         <div class="col-lg-6 col-md-6">
@@ -77,8 +77,8 @@
       </div><!--/arrest_rates_info row-->
       <div id="arrest_rates_data" class="row justify-content-center">
         <div class="col-lg-6 col-md-6">
-          <h3>County Arrest Rates</h3>
-          {{ crime_rate_df | safe }}
+          <h3>State Arrest Rates</h3>
+          {{ state_crime_rate_df | safe }}
         </div>
         <div class="col-lg-6 col-md-6">
           <h3>Juvenile Court Case Counts</h3>
@@ -86,8 +86,7 @@
           * denotes case counts greater than zero and less than five.
         </div>
         <div class="col-lg-6 col-md-6">
-          <h3>State Arrest Rates</h3>
-          {{ state_crime_rate_df | safe }}
+
         </div>
         <div class="col-lg-6 col-md-6">
           <h3>Juvenile Population Demographics by Age Group</h3>
@@ -104,9 +103,6 @@
           {{ placements_df | safe }}
         </div>
         <div class="col-lg-6 col-md-6">
-          <h3>District Placement Rates</h3>
-          {{ county_placement_rates_df | safe }}
-
           <h3>State Placement Rates</h3>
           {{ state_placement_rates_df | safe }}
         </div>

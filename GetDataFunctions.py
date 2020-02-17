@@ -1,10 +1,9 @@
 #File:getdata.ipynb
 #Author: Rafer Cooley
 #Desc:notebook for functions associated with loading raw data into pandas dataframes
-#from IPython.display import HTML
 import pandas as pd
 import os, sys
-import base64 #for createdownloadlink
+# import base64 #for createdownloadlink
 
 #these years are used as the standard range to display for the report, based off given ORI juvenile arrest data
 ORI_Begin_Year = '2010'
@@ -47,29 +46,18 @@ COUNTIES = ['Albany','Big Horn','Campbell','Carbon','Converse', 'Crook',
 
 idx = pd.IndexSlice
 class DataFunctions:
-    #found:https://stackoverflow.com/questions/31893930/download-csv-from-an-ipython-notebook
-    def create_download_link(self,df, title = "Download CSV file", filename = "data.csv"):
-        csv1 = df.to_csv()
-        b64 = base64.b64encode(csv1.encode())
-        payload = b64.decode()
-        html = '<a download="{filename}" href="data:text/csv;base64,{payload}" target="_blank">{title}</a>'
-        html = html.format(payload=payload,title=title,filename=filename)
-        return HTML(html)
-    #end found
-
     ##Get Data Functs
-
     ###################
     ## EDUCATION DATA FUNCTIONS
     def getSchool(self):
         #contains 'In School Suspensions'
-#         df = pd.read_csv(school_discipline_data_file,sep=',',header='infer')
-#         df['County'] = df['DISTRICT_NAME'].str.split('#').str[0]
-#         df.set_index(['County','Beginning Year','End Year'],inplace=True)
-#         df.sort_index(level=['County','Beginning Year','End Year'],ascending=[1,1,1],inplace=True)
-#         dfii = [x.strip() for x in df.index.get_level_values(0).unique()]
-#         df.index.set_levels(dfii, level='County', inplace=True)
-#         df['Totals']=df.iloc[:,[2,3,4,5]].sum(axis=1)
+        #         df = pd.read_csv(school_discipline_data_file,sep=',',header='infer')
+        #         df['County'] = df['DISTRICT_NAME'].str.split('#').str[0]
+        #         df.set_index(['County','Beginning Year','End Year'],inplace=True)
+        #         df.sort_index(level=['County','Beginning Year','End Year'],ascending=[1,1,1],inplace=True)
+        #         dfii = [x.strip() for x in df.index.get_level_values(0).unique()]
+        #         df.index.set_levels(dfii, level='County', inplace=True)
+        #         df['Totals']=df.iloc[:,[2,3,4,5]].sum(axis=1)
 
         #Does NOT include 'In School Suspensions'
         df = pd.read_csv(school_discipline_data_file,sep=',',header='infer')
@@ -103,7 +91,6 @@ class DataFunctions:
         df = pd.DataFrame(schl)
         df['Rate']=(df['Total']/df['Population 11-17'])*population_base_for_rates
         df['Rate']=df['Rate'].round(2)
-#         print(df.head(50))
         df.set_index(['County','Year'],inplace=True)
         df.sort_index(level=[0,1],ascending=[1,1],inplace=True)
         return df
@@ -130,8 +117,6 @@ class DataFunctions:
         df['Total'] = df.sum(axis=1)
         df['Total']=(df['Total']-df['Total Children in Care']-df['Total Family-like setting']-df['Total Group Care'])
         return df
-
-
 
     def getJudicialPlacementRates(self,placements,pop):
         year_range = range(int(ORI_Begin_Year),int(ORI_End_Year)+1)
